@@ -1,0 +1,348 @@
+@import url(animate.min.css);
+@import url(normalize.css);
+@import url(icomoon.css);
+@import url(css/font-awesome.min.css);
+@import url(meanmenu.css);
+@import url(owl.carousel.min.css);
+@import url(swiper.min.css);
+@import url(slick.css);
+@import url(jquery.fancybox.min.css);
+@import url(jquery-ui.css);
+@import url(nice-select.css);
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #F1EDED;
+    font-family: 'Poppins', sans-serif;
+}
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden !important;
+}
+.material-symbols-outlined{
+    cursor: pointer;
+}
+
+a{
+    cursor: pointer;
+}
+.nav{
+    display: flex;
+}
+.nav .jdl{
+    color: #1a1a1a;
+    font-weight: 600;
+    font-size: 20px;
+    margin-top: 25px;
+}
+.nav a{
+    text-decoration: none;
+    margin-left: 700px;
+    color: #1a1a1a;
+    font-weight: 400;
+    font-size: 17px;
+    margin-top: 30px;
+}
+.container{
+    margin-top: 45px;
+    margin-left: 225px;
+    width: 100px;
+    height: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-box{
+    display: flex;
+    align-items: center;
+    padding: 8px 16px;
+    border-radius: 40px;
+}
+.search-box:hover{
+    display: flex;
+    align-items: center;
+    background-color: #fafafa;
+    padding: 8px 16px;
+    border-radius: 40px;
+}
+
+.search-box .search-icon {
+    font-size: 1.18rem;
+    color: #1a1a1aa4;
+}
+
+.search-box .search-input {
+    transition: .5s;
+    width: 0px;
+    overflow: hidden;
+}
+
+.search-input .input{
+    border: none;
+    outline: none;
+    background-color: unset;
+    padding: 8px;
+    font-weight: 500px;
+}
+
+.search-box:hover .search-input{
+    width: 100px ;
+    margin-left :8px ;
+}
+.overlay {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 4;
+    top: 0;
+    left: 0;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0, 0.9);
+    overflow-x: hidden;
+    transition: 0.5s;
+}
+
+.overlay .closebtn {
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    font-size: 60px;
+}
+.overlay a {
+    padding: 0px;
+    text-decoration: none;
+    font-size: 22px;
+    color: #f1f1f1;
+    display: block;
+    transition: 0.3s;
+}
+.overlay-content {
+    position: relative;
+    top: 25%;
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+}
+.toggle_menu {
+    top: 8px;
+    position: relative;
+    left: 0px;
+}
+#atas{
+    display: flex;
+    margin-top: 30px;
+    margin-bottom: 100px;
+}
+#atas .kiri{
+    margin-left: 40px;
+    width: 600px;
+}
+#atas .kiri h1{
+    color: #09143A;
+    font-size: 30px;
+    margin-left: 50px;
+    margin-top: 130px;
+    margin-bottom: 20px;
+}
+#atas .kiri p{
+    margin-left: 50px;
+    width: 300px;
+}
+
+#atas .gbr1{
+    margin-left: 150px;
+    position: absolute;
+}
+#atas .gbr2{
+    margin-top: 70px;
+    margin-left: 70px;
+    position: absolute;
+}
+#konsultan{
+    margin-top: 330px;
+    margin-bottom: 100px;
+}
+#konsultan h1{
+    margin-left: 550px;
+    margin-bottom: 30px;
+    font-size: 30px;
+    color: #09143A;
+}
+#konsultan p{
+    margin-left: 370px;
+    width: 650px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+#konsultan .container1 {
+    max-width: 1120px;
+    width: 100%;
+    padding: 40px 0;
+  }
+  .slide-container {
+    margin: 0 30px;
+    overflow: hidden;
+  }
+  .card {
+    border-radius: 8px;
+  }
+  .card .image-box {
+    height: 400px;
+  }
+  .card .image-box img {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px 8px 80 80;
+  }
+  .card .profile-details {
+    display: flex;
+    align-items: center;
+    column-gap: 12px;
+    padding: 15px;
+  }
+  .card .profile-details img {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+  }
+  .profile-details .name {
+    font-size: 15px;
+    font-weight: 500;
+  }
+  .profile-details .job {
+    font-size: 12px;
+    font-weight: 500;
+    color: #4d4d4d;
+  }
+  
+  .swiper-navBtn {
+    color: #000;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+  }
+  #konsultan .swiper-navBtn::before,
+  #konsultan .swiper-navBtn::after {
+    font-size: 18px;
+  }
+  
+  #konsultan .swiper-pagination-bullet {
+    background-color: #000;
+  }
+
+#kordinator{
+    display: flex;
+    column-gap: 140px;
+    margin-left: 120px;
+    margin-top: 220px;
+    margin-bottom: 150px;
+}
+#kordinator .kotak{
+    margin-top: 5px;
+    width: 500px;
+    height: 630px;
+    background-color:#BFD1DD;
+    border-radius: 30px;
+}
+#kordinator .kotak h1{
+    margin-left: 50px;
+    margin-top: 200px;
+    color: white;
+    font-size: 40;
+    font-weight: 600;
+}
+#kordinator .kotak h2{
+    margin-left: 50px;
+    color: white;
+    font-size: 40;
+    font-weight: 600;
+}
+#footer {
+    height: 400px;
+    padding: 40px 40px 40px 60px;
+    background-color: #8AA2B2;
+}
+#footer .atas{
+    display: flex;
+    column-gap: 160px;
+}
+#footer .atas .logo .kotak{
+    display: flex;
+}
+#footer .atas .logo .kotak img{
+    margin-top: -25px;
+    margin-left: -10px;
+}
+#footer .atas .logo .kotak h3{
+    font-size: 22px;
+    margin-left: -5px;
+    color: white;
+}
+#footer .atas .logo p{
+    margin-top: 5px;
+    margin-left: 7px;
+    margin-bottom: 10px;
+    color: white;
+}
+#footer .atas .logo .sosial ul{
+    margin-left: 7px;
+    display: flex;
+    column-gap: 10px;
+    color: white;
+}
+#footer .atas .logo .sosial ul a{
+    color: white;
+}
+#footer .atas .download{
+    margin-top: 20px;
+    color: white;
+}
+#footer .atas .download h3{
+    font-size: 18px;
+    font-weight: 600;
+}
+#footer .atas .organization{
+    margin-top: 20px;
+    color: white;
+}
+#footer .atas .organization h3{
+    font-size: 18px;
+    font-weight: 600;
+}
+#footer .atas .colaboration{
+    margin-top: 20px;
+    color: white;
+}
+#footer .atas .colaboration h3{
+    font-size: 18px;
+    font-weight: 600;
+}
+#footer .bawah{
+    margin-top: 80px;
+    display: flex;
+}
+#footer .bawah p{
+    margin-top: 30px;
+    color: white;
+    margin-right: 520px;
+}
+#footer .bawah .logo{
+    display: flex;
+    column-gap: 30px;
+}
+#footer .bawah .logo .gbr1{
+    margin-top: -10px;
+}
+#footer .bawah .logo .gbr2{
+    margin-top: 10px;
+}
+#footer .bawah .logo .gbr3{
+    margin-top: 10px;
+}

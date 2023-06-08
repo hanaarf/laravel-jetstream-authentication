@@ -1,0 +1,567 @@
+@import url(animate.min.css);
+@import url(normalize.css);
+@import url(icomoon.css);
+@import url(css/font-awesome.min.css);
+@import url(meanmenu.css);
+@import url(owl.carousel.min.css);
+@import url(swiper.min.css);
+@import url(slick.css);
+@import url(jquery.fancybox.min.css);
+@import url(jquery-ui.css);
+@import url(nice-select.css);
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #F1EDED;
+    font-family: 'Poppins', sans-serif;
+}
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden !important;
+}
+.waveputih{
+z-index: -2;
+position: absolute;
+}
+.wavebiru{
+    z-index: -2;
+    position: absolute;
+}
+.nav{
+    display: flex;
+}
+.nav .jdl{
+    color: white;
+    font-weight: 600;
+    font-size: 20px;
+    margin-top: 25px;
+}
+.nav a{
+    text-decoration: none;
+    margin-left: 700px;
+    color: #1a1a1a;
+    font-weight: 400;
+    font-size: 17px;
+    margin-top: 30px;
+}
+.container{
+    margin-top: 45px;
+    margin-left: 225px;
+    width: 100px;
+    height: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-box{
+    display: flex;
+    align-items: center;
+    padding: 8px 16px;
+    border-radius: 40px;
+}
+.search-box:hover{
+    display: flex;
+    align-items: center;
+    background-color: #fafafa;
+    padding: 8px 16px;
+    border-radius: 40px;
+}
+
+.search-box .search-icon {
+    font-size: 1.18rem;
+    color: #1a1a1aa4;
+}
+
+.search-box .search-input {
+    transition: .5s;
+    width: 0px;
+    overflow: hidden;
+}
+
+.search-input .input{
+    border: none;
+    outline: none;
+    background-color: unset;
+    padding: 8px;
+    font-weight: 500px;
+}
+
+.search-box:hover .search-input{
+    width: 100px ;
+    margin-left :8px ;
+}
+.overlay {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 4;
+    top: 0;
+    left: 0;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0, 0.9);
+    overflow-x: hidden;
+    transition: 0.5s;
+}
+
+.overlay .closebtn {
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    font-size: 60px;
+}
+.overlay a {
+    padding: 0px;
+    text-decoration: none;
+    font-size: 22px;
+    color: #f1f1f1;
+    display: block;
+    transition: 0.3s;
+}
+.overlay-content {
+    position: relative;
+    top: 25%;
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+}
+.toggle_menu {
+    top: 8px;
+    position: relative;
+    left: 0px;
+}
+.hero{
+    display: flex;
+}
+.hero .kiri{
+    margin-left: 60px;
+    margin-right: 400px;
+    margin-top: 85px;
+}
+.hero .kiri h2{
+    font-size: 30px;
+    color: white;
+    font-weight: 600;
+}
+.hero .kiri h1{
+    font-size: 40px;
+    margin-top: 7;
+    color: white;
+    font-weight: 600;
+}
+.hero .kiri h3{
+    margin-top: 15px;
+    width: 300px;
+    font-size: 15px;
+    font-weight: 300;
+    color: white;
+}
+
+.hero .kiri p{
+    margin-top: 15px;
+    font-size: 15px;
+    color: white;
+}
+.hero .kiri span{
+    margin-top: 15px;
+    font-size: 25px;
+    margin-left: 20px;
+    color: white;
+}
+.hero .kanan{
+    margin-top:40px;
+}
+.tombolscroll{
+    margin-left: 50%;
+    color: #1A4B6C;
+}
+.tombolscroll span{
+
+    margin-top: 45px;
+    font-size: 40px;
+    color: #1A4B6C;
+}
+#mental{
+    margin-left: 80px;
+    margin-top: 285px;
+}
+#mental .kotak h1{
+    margin-bottom: 30px;
+    font-size: 30px;
+    margin-top: 7;
+    color: #1a1a1a;
+    font-weight: 600;
+    width: 370px;
+}
+#mental .kotak p{
+    margin-bottom: 50px;
+    font-size: 17px;
+    margin-top: 7;
+    color: #1a1a1a;
+    width: 400px;
+}
+#mental .kotak .iyh{
+   display: flex;
+   column-gap: 140px;
+}
+#visimisi{
+    margin-top: 200px;
+    margin-bottom: 80px;
+}
+#visimisi .gbr1{
+    position: absolute;
+    margin-left: -5px;
+}
+#visimisi .dalem{
+    margin-top: 150px;
+    margin-left: 80px;
+   position: absolute;
+}
+#visimisi .dalem h1{
+    margin-bottom: 30px;
+    font-size: 25px;
+    margin-top: 7;
+    color: #1a1a1a;
+    font-weight: 600;
+    width: 270px;
+}
+#visimisi .dalem p{
+    margin-bottom: 30px;
+    margin-top: 7;
+    color: #1a1a1a;
+    width: 370px;
+}
+#visimisi .gbr2{
+    position: absolute;
+    margin-top: 410px;
+    margin-left: 40%;
+}
+#visimisi .gbr3{
+    position: absolute;
+    margin-top: 200px;
+    margin-left: 890px;
+}
+#visimisi .teks3{
+    width: 220px;
+    text-align: center;
+    font-size: 13px;
+    position: absolute;
+    margin-top: 270px;
+    margin-left: 930px;
+}
+#visimisi .gbr4{
+    position: absolute;
+    margin-top: 580px;
+    margin-left: 990px;
+}
+#visimisi .teks4{
+    width: 220px;
+    text-align: center;
+    font-size: 13px;
+    position: absolute;
+    margin-top: 650px;
+    margin-left: 1020px;
+}
+#visimisi .gbr5{
+    position: absolute;
+    margin-top: 980px;
+    margin-left: 990px;
+}
+#visimisi .teks5{
+    width: 220px;
+    text-align: center;
+    font-size: 13px;
+    position: absolute;
+    margin-top: 1060px;
+    margin-left: 1020px;
+}
+#visimisi .gbr6{
+    position: absolute;
+    margin-top: 640px;
+    margin-left:90px ;
+}
+#visimisi .teks6{
+    width: 220px;
+    text-align: center;
+    font-size: 13px;
+    position: absolute;
+    margin-top: 710px;
+    margin-left:120px ;
+}
+#visimisi .gbr7{
+    position: absolute;
+    margin-top: 1060px;
+    margin-left: 150px;
+}
+#visimisi .teks7{
+    width: 220px;
+    text-align: center;
+    font-size: 13px;
+    position: absolute;
+    margin-top: 1140px;
+    margin-left: 180px;
+}
+
+.material-symbols-outlined{
+    cursor: pointer;
+}
+
+a{
+    cursor: pointer;
+}
+
+#review{
+    margin-top: 1600px;
+}
+#review img{
+    margin-left: 705px;
+}
+#review h1{
+    margin-left: 850px;
+    margin-top: -420px;
+    margin-bottom: 30px;
+    font-size: 25px;
+    color: #1a1a1a;
+    font-weight: 600;
+    width: 270px;
+}
+
+
+#review .container1 {
+    max-width: 1120px;
+    width: 100%;
+    padding: 40px 0;
+  }
+  .slide-container {
+    margin: 0 30px;
+    overflow: hidden;
+  }
+  .card {
+    background-color: white;
+    border: 2px solid #c5d0db;
+    border-radius: 8px;
+  }
+  .card .image-box {
+    height: 200px;
+  }
+  .card .image-box p {
+    padding: 47px 40px;
+  }
+  .card .profile-details {
+    display: flex;
+    align-items: center;
+    column-gap: 12px;
+    padding: 15px;
+  }
+  .card .profile-details img {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+  }
+  .profile-details .name {
+    font-size: 15px;
+    font-weight: 500;
+  }
+  .profile-details .job {
+    font-size: 12px;
+    font-weight: 500;
+    color: #4d4d4d;
+  }
+  
+  #review .swiper-navBtn {
+    background-color: rgb(177, 173, 173);
+    padding: 20px;
+    color: #000;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+  }
+  #review .swiper-navBtn::before,
+  #review .swiper-navBtn::after {
+    font-size: 18px;
+  }
+  
+  #review .swiper-pagination-bullet {
+    background-color: #000;
+  } 
+
+#download{
+    margin-left: 80px;
+    margin-top: 190px;
+    margin-bottom: 80px;
+}
+#download .kotak{
+    display: flex;
+}
+#download .kotak .kiri{
+    margin-left: 20px;
+   margin-top: 140px;
+ }
+#download .kotak .kiri h1{
+   margin-bottom: 10px;
+   color: #09143A;
+   font-size: 30px;
+}
+#download .kotak .kiri .bintang i{
+    color: #90844C;
+    font-size: 19px;
+ }
+#download .kotak .kiri .ats{
+    margin-bottom: 15px;
+    color: #1a1a1a;
+    width: 500px;
+ }
+#download .kotak .kiri .bwh{
+    margin-bottom: 15px;
+    color: #1a1a1aaf;
+    width: 500px;
+    margin-top: 10px;
+ }
+#download .kotak .kanan{
+    margin-left: 180px;
+}
+#download .kotak .kanan .gbr1{
+    margin-top: 70px;
+    margin-left: 30px;
+    position: absolute;
+    z-index: 1;
+}
+#download .kotak .kanan .gbr2{
+    transform: rotate(10deg);
+    margin-left: 180px;
+    margin-top: 20px;
+}
+#tb{
+    margin-top: 220px;
+    margin-bottom: 300px;
+}
+#tb .gbr1{
+    margin-left: -5px;
+}
+#tb .gbr2{
+    position: absolute;
+    margin-top: 150px;
+    margin-left: -500px;
+}
+#tb .luaran{
+    position: absolute;
+    width: 1000px;
+    height: 490px;
+    border-radius: 25px;
+    background-color: #1a1a1a59;
+    margin-left: 195px;
+    margin-top: -430px;
+}
+#tb .teks{
+    position: absolute;
+    margin-left: 250px;
+    margin-top: -300px;
+}
+#tb .teks h1{
+    width: 300px;
+    margin-bottom: 20px;
+    color: white;
+}
+#tb .teks p{
+    width: 300px;
+    margin-bottom: 30px;
+    color: white;
+}
+#tb .teks a{
+    text-decoration: none;
+    background-color: #3D5A67;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    box-shadow: 1px 1px 1px 1px rgba(190, 186, 186, 0.8);
+}
+#footer {
+    margin-top: 220px;
+    height: 400px;
+    padding: 40px 40px 40px 60px;
+    background-color: #8AA2B2;
+}
+#footer .atas{
+    display: flex;
+    column-gap: 160px;
+}
+#footer .atas .logo .kotak{
+    display: flex;
+}
+#footer .atas .logo .kotak img{
+    margin-top: -25px;
+    margin-left: -10px;
+}
+#footer .atas .logo .kotak h3{
+    font-size: 22px;
+    margin-left: -5px;
+    color: white;
+}
+#footer .atas .logo p{
+    margin-top: 5px;
+    margin-left: 7px;
+    margin-bottom: 10px;
+    color: white;
+}
+#footer .atas .logo .sosial ul{
+    margin-left: 7px;
+    display: flex;
+    column-gap: 10px;
+    color: white;
+}
+#footer .atas .logo .sosial ul a{
+    color: white;
+}
+#footer .atas .download{
+    margin-top: 20px;
+    color: white;
+}
+#footer .atas .download h3{
+    font-size: 18px;
+    font-weight: 600;
+}
+#footer .atas .organization{
+    margin-top: 20px;
+    color: white;
+}
+#footer .atas .organization h3{
+    font-size: 18px;
+    font-weight: 600;
+}
+#footer .atas .colaboration{
+    margin-top: 20px;
+    color: white;
+}
+#footer .atas .colaboration h3{
+    font-size: 18px;
+    font-weight: 600;
+}
+#footer .bawah{
+    margin-top: 80px;
+    display: flex;
+}
+#footer .bawah p{
+    margin-top: 30px;
+    color: white;
+    margin-right: 520px;
+}
+#footer .bawah .logo{
+    display: flex;
+    column-gap: 30px;
+}
+#footer .bawah .logo .gbr1{
+    margin-top: -10px;
+}
+#footer .bawah .logo .gbr2{
+    margin-top: 10px;
+}
+#footer .bawah .logo .gbr3{
+    margin-top: 10px;
+}
