@@ -38,6 +38,8 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
         }
     }
 
+    // $user = Auth::user();
+
     /**
      * Update the given verified user's profile information.
      *

@@ -61,7 +61,6 @@
         <div class="overlay-content">
             <br><br><a href="/">Home</a><br>
             <a href="/konsultan">Consultants</a><br>
-            <a href="about.html">About</a>
         </div>
     </div>
     <span class="navbar-toggler-icon"></span>

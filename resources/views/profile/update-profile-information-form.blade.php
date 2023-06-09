@@ -59,6 +59,24 @@
             <x-input-error for="name" class="mt-2" />
         </div>
 
+        @can('isWalas')
+        <div class="col-span-6 sm:col-span-4">
+            <x-label for="wali_kelas" :value="__('NIPD')" />
+            <x-input id="wali_kelas" class="block mt-1 w-full" type="text" name="wali_kelas" :value="Auth::user()->walas->nipd ?? ''" disabled />
+        </div>
+        @endcan
+        @can('isGurubk')
+        <div class="col-span-6 sm:col-span-4">
+            <x-label for="guru_bk" :value="__('NIPD')" />
+            <x-input id="guru_bk" class="block mt-1 w-full" type="text" name="wali_kelas" :value="Auth::user()->gurubk->nipd ?? ''" disabled />
+        </div>
+        @endcan
+        @can('isSiswa')
+        <div class="col-span-6 sm:col-span-4">
+            <x-label for="guru_bk" :value="__('NISN')" />
+            <x-input id="guru_bk" class="block mt-1 w-full" type="text" name="wali_kelas" :value="Auth::user()->siswa->nisn ?? ''" disabled />
+        </div>
+        @endcan
         <!-- Email -->
         <div class="col-span-6 sm:col-span-4">
             <x-label for="email" value="{{ __('Email') }}" />

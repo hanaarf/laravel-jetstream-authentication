@@ -23,8 +23,17 @@ class kelas extends Model
     }
 
     public function siswa(){
-        return $this->hasMany(siswa::class, 'kelas_id', 'id');
+        return $this->hasMany(siswa::class);
     }
+
+
+
+   
+
+    
+
+
+   
 
     // public function murid(){
     //     return $this->hasMany(walas::class, 'kelas_id', 'id');

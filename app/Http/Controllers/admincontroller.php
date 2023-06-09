@@ -7,6 +7,8 @@ use Session;
 use App\Models\User;
 use App\Models\siswa;
 use App\Models\walas;
+use App\Models\jenisrawan;
+use App\Models\jeniskonseling;
 use App\Models\kelas;
 use App\Models\guru;
 use Illuminate\Support\Facades\Schema;
@@ -375,4 +377,114 @@ class admincontroller extends Controller
           return redirect('/dbadmin-kelas')
           ->with('success','data User berhasil dihapus');
       }
+
+
+
+
+
+       /**
+     * Store a newly created resource in storage.
+     */
+
+    // alljenisrawan
+    public function indexjenisrawan()
+    {
+        $jenisrawan = jenisrawan::all();
+        return view('admin.jenisrawan',['jenisrawan' => $jenisrawan]);
+    }
+    public function createjenisrawan()
+    {
+        return view('admin.create.jenisrawan');
+    }
+    public function storejenisrawan(Request $request)
+    {
+        $request->validate([
+          'name' => 'required',
+        ]);
+
+        $input = $request->all();
+        jenisrawan::create($input);
+        return redirect('/dbadmin-jenisrawan')
+            ->with('success','data jenisrawan berhasil diinput');
+    }
+    public function showjenisrawan(User $user)
+    {
+        //
+    }
+    public function editjenisrawan($id)
+    {
+        $jenisrawan = jenisrawan::findorFail($id);
+        return view('admin.update.jenisrawan',['jenisrawan' => $jenisrawan]);
+    }
+    public function updatejenisrawan(Request $request, $id)
+    {
+        $jenisrawan = jenisrawan::findorFail($id);
+        $jenisrawan->update($request->all());
+        return redirect('/dbadmin-jenisrawan')
+        ->with('success','data User berhasil diedit');
+    }
+    public function destroyjenisrawan($id)
+    {
+        Schema::disableForeignKeyConstraints();
+        $jenisrawan = jenisrawan::findorFail($id);
+        $jenisrawan -> delete();
+        Schema::enableForeignKeyConstraints();
+        return redirect('/dbadmin-jenisrawan')
+        ->with('success','data User berhasil dihapus');
+    }
+
+
+
+
+
+        /**
+     * Store a newly created resource in storage.
+     */
+
+    // alljenisrawan
+    public function indexjeniskonseling()
+    {
+        $jeniskonseling = jeniskonseling::all();
+        return view('admin.jeniskonseling',['jeniskonseling' => $jeniskonseling]);
+    }
+    public function createjeniskonseling()
+    {
+        return view('admin.create.jeniskonseling');
+    }
+    public function storejeniskonseling(Request $request)
+    {
+        $request->validate([
+          'name' => 'required',
+        ]);
+
+        $input = $request->all();
+        jeniskonseling::create($input);
+        return redirect('/dbadmin-jeniskonseling')
+            ->with('success','data jeniskonseling berhasil diinput');
+    }
+    public function showjeniskonseling(User $user)
+    {
+        //
+    }
+    public function editjeniskonseling($id)
+    {
+        $jeniskonseling = jeniskonseling::findorFail($id);
+        return view('admin.update.jeniskonseling',['jeniskonseling' => $jeniskonseling]);
+    }
+    public function updatejeniskonseling(Request $request, $id)
+    {
+        $jeniskonseling = jeniskonseling::findorFail($id);
+        $jeniskonseling->update($request->all());
+        return redirect('/dbadmin-jeniskonseling')
+        ->with('success','data User berhasil diedit');
+    }
+    public function destroyjeniskonseling($id)
+    {
+        Schema::disableForeignKeyConstraints();
+        $jeniskonseling = jeniskonseling::findorFail($id);
+        $jeniskonseling -> delete();
+        Schema::enableForeignKeyConstraints();
+        return redirect('/dbadmin-jeniskonseling')
+        ->with('success','data User berhasil dihapus');
+    }
 }

@@ -31,6 +31,7 @@
                                 <div class="auth-form">
 									<div class="text-center mb-3">
 										<img src="landingpage/gambar/logodm.png" alt="" width="100px">
+                                        {{-- <img src="landingpage/gambar/tbwelcome.png" alt="" width="130px"> --}}
 									</div>
                                     <h4 class="text-center mb-4">Sign in your account</h4>
                                
@@ -39,7 +40,7 @@
                                         @csrf
                             
                                         <div>
-                                            <x-label for="email" value="{{ __('Email/nisn/nipd') }}" />
+                                            <x-label for="email" value="{{ __('Email/Nisn/Nipd') }}" />
                                             <x-input id="email" class="form-control" type="text" name="login" :value="old('login')" required autofocus autocomplete="username" />
                                         </div>
                             

@@ -20,12 +20,14 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         $this->call([
-            // UserSedeer::class,
-            // guruSedeer::class,
-            // walasSedeer::class,
-            // kelasSedeer::class,
-            // siswaSedeer::class,
+            UserSedeer::class,
+            guruSedeer::class,
+            walasSedeer::class,
+            kelasSedeer::class,
+            siswaSedeer::class,
             jenisrawanSedeer::class,
+            jeniskonselingSedeer::class,
+          petakerawananSedeer::class,
         ]);
     }
 }

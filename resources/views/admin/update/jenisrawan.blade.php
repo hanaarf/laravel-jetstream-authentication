@@ -52,51 +52,19 @@
         <div class="col-xl-12 col-lg-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title">Add User</h4>
+                    <h4 class="card-title">Add Data</h4>
                 </div>
                 <div class="card-body">
                     <div class="basic-form">
-                        <form  method="POST" action="/dbadmin-simpaneditgurubk/{{ $guru->id}}" enctype="multipart/form-data">
+                       
+                        <form  method="POST" action="/dbadmin-simpaneditjenisrawan/{{ $jenisrawan->id}}" enctype="multipart/form-data">
                             @method('put')
                             @csrf
                             <div class="form-row">
-                                <div class="form-group col-md-6">
+                                <div class="form-group col-md-12">
                                     <label>Name</label>
-                                    <input name="name" type="text" class="form-control" placeholder="name" value="{{ $guru->name}}">
+                                    <input name="name" type="text" class="form-control" placeholder="name" value="{{ $jenisrawan->name}}">
                                 </div>
-                                <div class="form-group col-md-6">
-                                    <label>nipd</label>
-                                    <input name="nipd" type="text" class="form-control" placeholder="nipd" value="{{ $guru->nipd}}">
-                                </div>
-                              
-                                    <div class="form-group col-md-12">
-                                        <label>user id</label>
-                                        <select name="user_id" class="form-control default-select" id="maapel">
-                                            <option value="{{ $guru->userid->id }}" selected>{{ $guru->userid->name }}
-                                                @foreach ($userid as $item)
-                                                    <option value="{{ $item->id }}">{{ $item->name }}</option>
-                                                @endforeach
-                                        </select>
-                                    </div>
-                            
-                                <div class="form-group col-md-12">
-                                    <label>ttl</label>
-                                    <input name="ttl" type="date" class="form-control" placeholder="ttl" value="{{ $guru->ttl}}">
-                                </div>
-                            </div>
-
-                            
-
-                            <div class="form-row">
-                                <div class="form-group col-md-12">
-                                    <label>gender</label>
-                                    <select name="gender" id="inputState" class="form-control default-select">
-                                        <option value="pria" {{ $guru->gender === 'pria' ? 'selected' : '' }}>pria</option>
-                                        <option value="wanita" {{ $guru->gender === 'wanita' ? 'selected' : '' }}>wanita</option>
-                                    </select>
-
-                                </div>
-                            </div>
                             <button type="submit" class="btn btn-primary">Create</button>
                         </form>
                     </div>
@@ -104,5 +72,7 @@
             </div>
         </div>
     </div>
+    
+  
 </div>
 @endsection

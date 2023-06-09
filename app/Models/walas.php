@@ -22,5 +22,13 @@ class walas extends Model
     public function kelas(){
         return $this->hasMany(kelas::class, 'walas_id', 'id');
     }
+
+    public function user1()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+ 
+  
    
 }

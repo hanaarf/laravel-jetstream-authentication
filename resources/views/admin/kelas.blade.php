@@ -89,7 +89,7 @@
                                             onsubmit="return confirm('yakin hapus?')">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="ml-3 btn btn-danger shadow btn-xs sharp"> <i
+                                            <button type="submit" class="ml-3 btn btn-warning shadow btn-xs sharp"> <i
                                                     class="fa fa-trash"></i> </button>
                                         </form>
                                     </div>

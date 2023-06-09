@@ -912,7 +912,7 @@
                                     </div>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right">
-                                    <a href="app-profile.html" class="dropdown-item ai-icon">
+                                    <a href="/dbadmin-profile" class="dropdown-item ai-icon">
                                         <svg id="icon-user1" xmlns="http://www.w3.org/2000/svg" class="text-primary"
                                             width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentColor"
                                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -1007,7 +1007,7 @@
                         </ul>
                     </li>
 
-                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                    {{-- <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                             <i class="flaticon-061-puzzle"></i>
                             <span class="nav-text">counseling</span>
                         </a>
@@ -1033,10 +1033,7 @@
                         <i class="flaticon-049-copy"></i>
                         <span class="nav-text">vulnerability map</span>
                     </a>
-                </li>
-
-
-
+                </li> --}}
                     <li class="nav-label">components</li>
 
                     <li><a href="/dbadmin-kelas" class="ai-icon" aria-expanded="false">
@@ -1045,17 +1042,7 @@
                         </a>
                     </li>
 
-                    <li><a href="/dbadmin-jeniskerawanan" class="ai-icon" aria-expanded="false">
-                            <i class="flaticon-381-settings-2"></i>
-                            <span class="nav-text">vulnerability type</span>
-                        </a>
-                    </li>
-
-                    <li><a href="/dbadmin-jeniskonseling" class="ai-icon" aria-expanded="false">
-                            <i class="flaticon-044-file"></i>
-                            <span class="nav-text">Counseling type</span>
-                        </a>
-                    </li>
+                
                 </ul>
 
                 @elsecan('isSiswa')
@@ -1087,6 +1074,26 @@
 
 
                         </ul>
+                    </li>
+
+                      <li class="nav-label">components</li>
+
+                    <li><a href="/dbadmin-kelas" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-003-diamond"></i>
+                            <span class="nav-text">Class</span>
+                        </a>
+                    </li>
+
+                    <li><a href="/dbadmin-jenisrawan" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-settings-2"></i>
+                            <span class="nav-text">vulnerability type</span>
+                        </a>
+                    </li>
+
+                    <li><a href="/dbadmin-jeniskonseling" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-044-file"></i>
+                            <span class="nav-text">Counseling type</span>
+                        </a>
                     </li>
 
 
@@ -1128,11 +1135,24 @@
 
                     <li class="nav-label">components</li>
 
-					<li><a href="/dbgurubk-datapeta" class="ai-icon" aria-expanded="false">
+               
+                    <li><a href="/dbadmin-jenisrawan" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-settings-2"></i>
+                            <span class="nav-text">vulnerability type</span>
+                        </a>
+                    </li>
+
+                    <li><a href="/dbadmin-jeniskonseling" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-044-file"></i>
+                            <span class="nav-text">Counseling type</span>
+                        </a>
+                    </li>
+
+					{{-- <li><a href="/dbgurubk-datapeta" class="ai-icon" aria-expanded="false">
 						<i class="flaticon-003-diamond"></i>
 							<span class="nav-text">vulnerability map data</span>
 						</a>
-					</li>
+					</li> --}}
 
 					
 				</ul>
@@ -1149,7 +1169,7 @@
 
 					
 					<li class="nav-label">Apps</li>
-					<li><a href="/dbsiswa-buatkonseling" class="ai-icon" aria-expanded="false">
+					<li><a href="dbwalas-petakerawanan" class="ai-icon" aria-expanded="false">
 						<i class="flaticon-049-copy"></i>
 						<span class="nav-text">vulnerability map data</span>
 					</a>
@@ -1168,6 +1188,20 @@
 						</ul>
 					</li>
 
+                    <li class="nav-label">components</li>
+
+               
+                    <li><a href="/dbadmin-jenisrawan" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-settings-2"></i>
+                            <span class="nav-text">vulnerability type</span>
+                        </a>
+                    </li>
+
+                    <li><a href="/dbadmin-jeniskonseling" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-044-file"></i>
+                            <span class="nav-text">Counseling type</span>
+                        </a>
+                    </li>
 					
 				</ul>
 

@@ -21,4 +21,11 @@ class guru extends Model
     public function kelas(){
         return $this->hasMany(kelas::class, 'gurubk_id', 'id');
     }
+
+    // public function kelas1()
+    // {
+    //     return $this->hasOne(Kelas::class);
+    // }
+
+ 
 }
