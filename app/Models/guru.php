@@ -27,5 +27,22 @@ class guru extends Model
     //     return $this->hasOne(Kelas::class);
     // }
 
+    // baru
+    public function user1()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function kelas1()
+    {
+        return $this->hasOne(kelas::class);
+        
+    }
  
+
+     // barubgt
+    public function kelas2()
+    {
+        return $this->hasOne(kelas::class, 'guru_id');
+    }
 }

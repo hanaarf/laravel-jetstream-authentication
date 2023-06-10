@@ -65,15 +65,14 @@
                         <br><thead>
                             <tr>
                                 <th scope="col">Id</th>
-                                <th scope="col">kerawanan</th>
                                 <th scope="col">siswa</th>
-                                <th scope="col">walas</th>
+                                <th scope="col">kerawanan</th>
                                 <th scope="col">kesimpulan</th>
                                 <th scope="col">action</th>
                             </tr>
                         </thead>
                        <tbody>
-                            @foreach ($petakerawanan as $item)
+                            {{-- @foreach ($petakerawanan as $item)
                             <tr>
                                 <td>{{ $item->id }}</td>
                                 <td><a href="javascript:void(0);"><strong>{{ $item->jenisrawanid->name }}</strong></a></td>
@@ -95,7 +94,41 @@
                                     </span>
                                 </td>
                             </tr>
-                            @endforeach
+                            @endforeach --}}
+
+
+                            {{-- @foreach($peta as $item)
+                            <tr>
+                                <td>{{$loop->iteration}}</td>
+                                <td>{{$item->siswa->name}}</td>
+                                <td></td>
+                            </tr>
+                            @endforeach --}}
+
+
+                            @foreach ($petaKerawanans as $key => $petaKerawanan)
+                            <tr>
+                                {{-- <td>{{ $key + 1 }}</td> --}}
+                                <td>{{ $petaKerawanan->id }}</td>
+                                <td>{{ $petaKerawanan->siswa->name }}</td>
+                                <td>{{ $petaKerawanan->jenisKerawanan1->name }}</td>
+                                <td>{{ $petaKerawanan->kesimpulan }}</td>
+                                <td>
+                                    <span style="display: flex">
+                                        <a href="/dbwalas/{{  $petaKerawanan->id }}/editpk">
+                                            <button type="submit" class="ml-3 btn btn-primary shadow btn-xs sharp"><i class="fa fa-pencil color-muted"></i>  </button>
+                                        </a><br>
+                                      
+                                        <form action="/dbwalas-hapuspk/{{  $petaKerawanan->id }}" method="POST"
+                                            onsubmit="return confirm('yakin hapus?')">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="ml-3 btn btn-warning shadow btn-xs sharp"><i class="fa fa-close color-danger"></i> </button>
+                                        </form>
+                                    </span>
+                                </td>
+                            </tr>
+                        @endforeach
                        </tbody>
                     </table>
                 </div>

@@ -16,34 +16,49 @@
                             </div>
                         @endif
 
-                        <form action="{{ route('peta-kerawanan.store') }}" method="POST">
+                        <form action="{{ route('kerawanan.store') }}" method="POST">
                             @csrf
-
-                            <div class="form-group">
-                                <label for="walas_id">Wali Kelas</label>
-                                <input type="text" id="walas_id" class="form-control" value="{{ $walas->nama }}" readonly>
-                                <input type="hidden" name="walas_id" value="{{ $walas->id }}">
-                            </div>
-
-                            <div class="form-group">
+                        
+                            {{-- <label for="walas_id">walas</label> --}}
+                            <input class="form-control" type="hidden" name="walas_id" value="{{ $walas->id }}">
+                        
+                            {{-- <div class="form-group col-md-12">
                                 <label for="siswa_id">Siswa</label>
                                 <select name="siswa_id" id="siswa_id" class="form-control">
+                                     @foreach ($siswa as $siswaItem)
+                                    <option value="{{ $siswaItem->id }}">{{ $siswaItem->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div> --}}
+
+
+                            <div class="form-group col-md-12">
+                                <label>siswa</label>
+                                <select name="siswa_id" class="form-control default-select" id="maapel">
                                     @foreach ($siswa as $item)
-                                        <option value="{{ $item->id }}">{{ $item->nama }}</option>
+                                        <option value="{{ $item->id }}">{{ $item->name }}</option>
                                     @endforeach
                                 </select>
                             </div>
-
-                            <div class="form-group">
-                                <label for="jenis_kerawanan">Jenis Kerawanan</label>
-                                <select name="jenis_kerawanan[]" id="jenis_kerawanan" class="form-control" multiple>
-                                    <option value="Kerawanan 1">Kerawanan 1</option>
-                                    <option value="Kerawanan 2">Kerawanan 2</option>
-                                    <option value="Kerawanan 3">Kerawanan 3</option>
-                                    <!-- Tambahkan opsi lainnya jika diperlukan -->
+                            
+                            <div class="form-group col-md-12">
+                                <label>jenis rawan id</label>
+                                <select name="jenisrawan_id" class="form-control default-select" id="maapel">
+                                    @foreach ($jenisKerawanan as $item)
+                                        <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                    @endforeach
                                 </select>
                             </div>
-
+                        
+                            {{-- <div class="form-group col-md-12">
+                                <label for="jeniskerawanan_id">Jenis Kerawanan</label>
+                                <select name="jenisrawan_id[]" id="jenisrawan_id" class="form-control" multiple>
+                                    @foreach ($jenisKerawanan as $jenis)
+                                    <option value="{{ $jenis->id }}">{{ $jenis->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div> --}}
+                        
                             <button type="submit" class="btn btn-primary">Simpan</button>
                         </form>
                     </div>

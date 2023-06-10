@@ -29,6 +29,30 @@ class siswa extends Model
     // }
 
 
+    //  baru
+    public function user1()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function kelas1()
+    {
+        return $this->belongsTo(kelas::class);
+    }
+
+
+
+
+     // barubgt
+    public function kelas2()
+    {
+        return $this->belongsTo(kelas::class);
+    }
+
+    public function kerawanan2()
+    {
+        return $this->hasMany(petakerawanan::class, 'siswa_id');
+    }
 
    
 }

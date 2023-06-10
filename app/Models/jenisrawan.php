@@ -13,4 +13,18 @@ class jenisrawan extends Model
     protected $fillable = [
         'name'
     ];
+
+
+    //baru
+    public function kerawanan1()
+    {
+        return $this->hasMany(petakerawanan::class);
+    }
+
+
+    //barubgt
+    public function kerawanan2()
+    {
+        return $this->hasMany(petakerawanan::class, 'jenisrawan_id');
+    }
 }

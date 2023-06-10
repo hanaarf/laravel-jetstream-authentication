@@ -14,15 +14,15 @@ class petakerawanan extends Model
         'jenisrawan_id','siswa_id','walas_id','kesimpulan'
     ];
 
-    public function walas()
-    {
-        return $this->belongsTo(walas::class, 'walas_id');
-    }
+    // public function walas()
+    // {
+    //     return $this->belongsTo(walas::class, 'walas_id');
+    // }
 
-    public function siswa()
-    {
-        return $this->belongsTo(siswa::class, 'siswa_id');
-    }
+    // public function siswa()
+    // {
+    //     return $this->belongsTo(siswa::class, 'siswa_id');
+    // }
 
 
     public function jenisrawanid(){
@@ -35,5 +35,34 @@ class petakerawanan extends Model
 
     public function walasid(){
         return $this->belongsTo(walas::class, 'walas_id', 'id');
+    }
+
+    //baru
+    public function siswa1()
+    {
+        return $this->belongsTo(siswa::class);
+    }
+
+    public function walas1()
+    {
+        return $this->belongsTo(walas::class);
+    }
+
+    public function jenisKerawanan1()
+    {
+        return $this->belongsTo(jenisrawan::class, 'jenisrawan_id');
+    }
+
+
+
+    //barubgt
+    public function walikelas()
+    {
+        return $this->belongsTo(walas::class);
+    }
+
+    public function siswa()
+    {
+        return $this->belongsTo(siswa::class);
     }
 }

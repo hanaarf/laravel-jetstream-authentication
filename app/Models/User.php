@@ -53,6 +53,23 @@ class User extends Authenticatable
         }
 
 
+        //baru
+        public function guru1()
+        {
+            return $this->hasOne(guru::class);
+        }
+    
+        public function siswa1()
+        {
+            return $this->hasOne(siswa::class);
+        }
+    
+        public function walas1()
+        {
+            return $this->hasOne(walas::class);
+        }
+
+
     /**
      * The attributes that should be hidden for serialization.
      *
