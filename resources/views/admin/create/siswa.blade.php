@@ -71,7 +71,7 @@
 
                                 <div class="form-group col-md-12">
                                     <label>user id</label>
-                                    <select name="user_id" class="form-control default-select" id="maapel">
+                                    <select name="user_id" class="form-control default-select" id="single-select">
                                         @foreach ($user as $item)
                                         <option value="{{ $item->id }}">{{ $item->name }}</option>
                                         @endforeach
@@ -80,7 +80,7 @@
 
                                 <div class="form-group col-md-12">
                                     <label>kelas id</label>
-                                    <select name="kelas_id" class="form-control default-select" id="maapel">
+                                    <select name="kelas_id" class="form-control default-select" id="single-select">
                                         @foreach ($kelas as $item)
                                         <option value="{{ $item->id }}">{{ $item->name }}</option>
                                         @endforeach

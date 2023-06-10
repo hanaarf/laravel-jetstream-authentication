@@ -27,4 +27,10 @@ class jenisrawan extends Model
     {
         return $this->hasMany(petakerawanan::class, 'jenisrawan_id');
     }
+
+    //gurupk
+    public function kerawanan3()
+    {
+        return $this->hasMany(petakerawanan::class);
+    }
 }

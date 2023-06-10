@@ -23,6 +23,8 @@
     <link href="{{ asset('vendor/bootstrap-select/dist/css/bootstrap-select.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
+    <link rel="stylesheet" href="{{ asset('vendor/select2/css/select2.min.css') }}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 
 
@@ -1111,7 +1113,7 @@
 
 					
 					<li class="nav-label">Apps</li>
-					<li><a href="/dbgurubk-petakerawanan" class="ai-icon" aria-expanded="false">
+					<li><a href="/dbgurubk-form-pk" class="ai-icon" aria-expanded="false">
 						<i class="flaticon-049-copy"></i>
 						<span class="nav-text">vulnerability map</span>
 					</a>
@@ -1282,6 +1284,7 @@
     <script src="{{ asset('vendor/datatables/js/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('js/plugins-init/datatables.init.js') }}"></script>
     <script src="{{ asset('js/custom.min.js') }}"></script>
+    <script src="{{ asset('vendor/select2/js/select2.full.min.js') }}"></script>
     <script src="{{ asset('js/deznav-init.js') }}"></script>
     <script src="{{ asset('js/demo.js') }}"></script>
     <script src="{{ asset('js/styleSwitcher.js') }}"></script>

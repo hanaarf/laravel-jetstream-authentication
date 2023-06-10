@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\guru;
 use App\Models\kelas;
 use App\Models\siswa;
+use App\Models\User;
 use App\Models\walas;
 use App\Models\jenisrawan;
 use Illuminate\Http\Request;
@@ -182,5 +183,45 @@ class petakerawanancontroller extends Controller
         Schema::enableForeignKeyConstraints();
         return redirect('dbwalas-petakerawanan')
         ->with('success','data User berhasil dihapus');
+    }
+
+
+
+
+
+
+
+    //gurubk
+    public function createpkguru()
+    {
+        $guru = Auth::user()->guru;
+        $kelas = $guru->kelas;
+        $jenisRawan = jenisrawan::all();
+
+        return view('guru.create.petakerawanan', compact('kelas', 'jenisRawan'));
+
+    }
+
+    public function kelaspk($id)
+    {
+        $jenisRawan = jenisrawan::all();
+        $siswa = siswa::where("kelas_id",$id)->get();
+        return view('guru.create.kelas-siswa', compact('siswa', 'jenisRawan'));
+    }
+
+   
+
+  
+    public function storepkguru(Request $request)
+    {
+        $validatedData = $request->validate([
+            'siswa_id' => 'required',
+            'walas_id' => 'required',
+            'jenisrawan_id' => 'required',
+        ]);
+
+        PetaKerawanan::create($validatedData);
+
+        return redirect('/dashboard')->with('success', 'Data Peta Kerawanan berhasil ditambahkan');
     }
 }

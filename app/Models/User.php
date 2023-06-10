@@ -53,7 +53,7 @@ class User extends Authenticatable
         }
 
 
-        //baru
+        //wlaspk
         public function guru1()
         {
             return $this->hasOne(guru::class);
@@ -65,6 +65,22 @@ class User extends Authenticatable
         }
     
         public function walas1()
+        {
+            return $this->hasOne(walas::class);
+        }
+
+        //gurubkpk
+        public function guru3()
+        {
+            return $this->hasOne(guru::class);
+        }
+
+        public function siswa3()
+        {
+            return $this->hasOne(siswa::class);
+        }
+
+        public function walas3()
         {
             return $this->hasOne(walas::class);
         }

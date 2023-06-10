@@ -156,6 +156,18 @@ Route::middleware(['auth', 'role:walas'])->group(function () {
 
 
 
+// Route::get('/dbgurubk-form-pk', [petakerawanancontroller::class, 'createpkguru']);
+// Route::post('/dbgurubk-form-pk', [petakerawananController::class, 'storegurupk']);
+// Route::post('/peta-kerawanan/get-walas', [petakerawanancontroller::class, 'getWalas']);
+
+
+
+Route::get('/dbgurubk-form-pk', [petakerawanancontroller::class, 'createpkguru'])->name('peta_kerawanan.create');
+
+Route::get('/dbgurubk-formpk-kelas/{id}', [petakerawanancontroller::class, 'kelaspk']);
+
+
+
 // alluser
 // Route::get('/dbadmin-alluser', [admincontroller::class, 'indexuser']);
 // Route::get('/dbadmin-form-alluser', [admincontroller::class, 'createuser']);

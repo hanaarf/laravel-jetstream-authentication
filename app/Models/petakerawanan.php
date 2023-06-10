@@ -65,4 +65,21 @@ class petakerawanan extends Model
     {
         return $this->belongsTo(siswa::class);
     }
+
+
+    //gurupk
+    public function siswa3()
+    {
+        return $this->belongsTo(siswa::class);
+    }
+
+    public function walas3()
+    {
+        return $this->belongsTo(walas::class);
+    }
+
+    public function jenisrawan3()
+    {
+        return $this->belongsTo(jenisrawan::class);
+    }
 }

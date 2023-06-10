@@ -43,7 +43,7 @@ class siswa extends Model
 
 
 
-     // barubgt
+     // walaspk
     public function kelas2()
     {
         return $this->belongsTo(kelas::class);
@@ -52,6 +52,18 @@ class siswa extends Model
     public function kerawanan2()
     {
         return $this->hasMany(petakerawanan::class, 'siswa_id');
+    }
+
+
+    //gurupk
+    public function kelas3()
+    {
+        return $this->belongsTo(kelas::class);
+    }
+
+    public function walas3()
+    {
+        return $this->belongsTo(walas::class);
     }
 
    

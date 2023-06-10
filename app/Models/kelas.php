@@ -17,10 +17,7 @@ class kelas extends Model
     public function guru(){
         return $this->belongsTo(guru::class, 'gurubk_id', 'id');
     }
-
-    // public function walas(){
-    //     return $this->belongsTo(walas::class, 'walas_id', 'id');
-    // }
+ 
 
     public function siswa(){
         return $this->hasMany(siswa::class);
@@ -65,9 +62,22 @@ class kelas extends Model
         return $this->hasMany(siswa::class);
     }
 
-   
 
-    
+    //gurupk
+    public function guru3()
+    {
+        return $this->belongsTo(guru::class);
+    }
+
+    public function walas3()
+    {
+        return $this->belongsTo(walas::class);
+    }
+
+    public function siswa3()
+    {
+        return $this->hasMany(siswa::class);
+    }
 
 
    

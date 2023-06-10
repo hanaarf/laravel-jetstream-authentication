@@ -53,5 +53,15 @@ class walas extends Model
         return $this->hasMany(petakerawanan::class, 'walas_id');
     }
   
+    //gurupk
+    public function kelas3()
+    {
+        return $this->hasOne(kelas::class, 'walas_id');
+    }
+
+    public function siswa3()
+    {
+        return $this->hasMany(siswa::class, 'walas_id');
+    }
    
 }
