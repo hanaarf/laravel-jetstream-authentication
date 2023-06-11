@@ -70,10 +70,12 @@
                                     </select>
                                 </div>
 
-                                <div class="form-group col-md-12">
+                            
+
+                                {{-- <div class="form-group col-md-12">
                                     <label>kesimpulan</label>
                                     <input name="kesimpulan" type="text" class="form-control" placeholder="" value="{{ $petakerawanan->kesimpulan}}">
-                                </div>
+                                </div> --}}
 
 
                                 {{-- <div class="form-group col-md-12">

@@ -81,8 +81,19 @@ class kelas extends Model
 
 
    
+    //11
+    public function siswa5()
+    {
+        return $this->hasMany(siswa::class, 'kelas_id');
+    }
 
-    // public function murid(){
-    //     return $this->hasMany(walas::class, 'kelas_id', 'id');
-    // }
+    public function guru5()
+    {
+        return $this->belongsTo(guru::class, 'guru_id');
+    }
+
+    public function walas5()
+    {
+        return $this->belongsTo(walas::class, 'walas_id');
+    }
 }

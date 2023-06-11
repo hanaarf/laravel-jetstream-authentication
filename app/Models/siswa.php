@@ -66,5 +66,22 @@ class siswa extends Model
         return $this->belongsTo(walas::class);
     }
 
+
+    //tgl11
+    public function kelas()
+    {
+        return $this->belongsTo(kelas::class);
+    }
+
+    public function kerawanan()
+    {
+        return $this->hasMany(petakerawanan::class);
+    }
+
+    //12
+    public function kelas5()
+    {
+        return $this->belongsTo(kelas::class, 'kelas_id');
+    }
    
 }

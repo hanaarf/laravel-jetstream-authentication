@@ -17,8 +17,6 @@ class petakerawananSedeer extends Seeder
     {
         $data = [
             ['jenisrawan_id'=>'1','siswa_id'=>'1','walas_id'=>'1'],
-            ['jenisrawan_id'=>'2','siswa_id'=>'2','walas_id'=>'2'],
-            ['jenisrawan_id'=>'1','siswa_id'=>'2','walas_id'=>'2'],
         ];
 
         foreach ($data as $item ) {

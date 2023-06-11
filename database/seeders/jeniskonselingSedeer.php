@@ -16,7 +16,7 @@ class jeniskonselingSedeer extends Seeder
     public function run(): void
     {
         $data = [
-            ['name'=>'Bimbingan pribadi'],
+            ['name'=>'Bimbingan private'],
             ['name'=>'Bimbingan sosial'],
             ['name'=>'Bimbingan karir'],
             ['name'=>'Bimbingan belajar'],

@@ -58,5 +58,11 @@ class guru extends Model
         return $this->hasOne(kelas::class, 'guru_id');
     }
 
+    //12
+    public function kelas5()
+    {
+        return $this->hasOne(kelas::class, 'guru_id');
+    }
+
 
 }

@@ -135,18 +135,14 @@ Route::middleware(['role:walas'])->group(function () {
     Route::get('dbwalas-form-pk', [petakerawananController::class, 'create'])
         ->name('peta-kerawanan.create');
 });
-
-
 Route::middleware(['auth', 'role:walas'])->group(function () {
    
     Route::post('peta-kerawanan', [petakerawananController::class, 'store'])->name('peta-kerawanan.store');
 });
-
 Route::middleware(['auth', 'role:walas'])->group(function () {
     Route::get('/dbwalas-form-pk', [petakerawananController::class, 'create'])->name('kerawanan.create');
     Route::post('/dbwalas-form-pk', [petakerawananController::class, 'store'])->name('kerawanan.store');
 });
-
 Route::middleware(['auth', 'role:walas'])->group(function () {
     Route::get('/dbwalas-petakerawanan', [petakerawananController::class, 'index'])->name('peta-kerawanan.index');
     Route::get('/dbwalas/{id}/editpk', [petakerawananController::class, 'edit']);
@@ -162,10 +158,15 @@ Route::middleware(['auth', 'role:walas'])->group(function () {
 
 
 
-Route::get('/dbgurubk-form-pk', [petakerawanancontroller::class, 'createpkguru'])->name('peta_kerawanan.create');
-
-Route::get('/dbgurubk-formpk-kelas/{id}', [petakerawanancontroller::class, 'kelaspk']);
-
+Route::middleware(['auth', 'role:gurubk'])->group(function () {
+    Route::get('/dbgurubk-petakerawanan', [petakerawanancontroller::class, 'indexpk']);
+    Route::get('/dbgurubk-form-pk', [petakerawanancontroller::class, 'createpkguru'])->name('peta_kerawanan.create');
+    Route::get('/dbgurubk-formpk-kelas/{id}', [petakerawanancontroller::class, 'kelaspk']);
+    Route::post('/dbgurubk-formpk-kelas', [petakerawanancontroller::class, 'storepkguru'])->name('dbgurubk-formpk-kelas');
+    Route::get('/dbgurubk/{id}/editpk', [petakerawananController::class, 'editpk']);
+    Route::put('/dbgurubk/{id}/editpk', [petakerawananController::class, 'updatepk']);
+    Route::delete('/dbgurubk-hapuspk/{id}', [petakerawananController::class, 'destroypk']);
+});
 
 
 // alluser

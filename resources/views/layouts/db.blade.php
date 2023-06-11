@@ -1051,7 +1051,7 @@
                 <ul class="metismenu" id="menu">
                     <li class="nav-label first">Main Menu</li>
 
-                    <li><a href="/dbsiswa" class="ai-icon" aria-expanded="false">
+                    <li><a href="/dashboard" class="ai-icon" aria-expanded="false">
                             <i class="flaticon-144-layout"></i>
                             <span class="nav-text">Home</span>
                         </a>
@@ -1059,53 +1059,33 @@
 
 
                     <li class="nav-label">Apps</li>
-                    <li><a href="/dbsiswa-buatkonseling" class="ai-icon" aria-expanded="false">
-                            <i class="flaticon-049-copy"></i>
-                            <span class="nav-text">making guidance</span>
-                        </a>
-                    </li>
                     <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                            <i class="flaticon-077-menu-1"></i>
-                            <span class="nav-text">results</span>
-                        </a>
+						<i class="flaticon-077-menu-1"></i>
+							<span class="nav-text">making guidance</span>
+						</a>
                         <ul aria-expanded="false">
-                            <li><a href="/dbsiswa-lihat-bpribadi">personal guidance</a></li>
-                            <li><a href="/dbsiswa-lihat-bsosial">social guidance</a></li>
-                            <li><a href="/dbsiswa-lihat-bkarir">career socialization guidance</a></li>
-                            <li><a href="/dbsiswa-lihat-bbelajar">tutoring</a></li>
-
-
+                            <li><a href="app-profile.html">private guidance</a></li>
+							<li><a href="post-details.html">group conceling</a></li>
+                          
                         </ul>
                     </li>
 
-                      <li class="nav-label">components</li>
-
-                    <li><a href="/dbadmin-kelas" class="ai-icon" aria-expanded="false">
-                            <i class="flaticon-003-diamond"></i>
-                            <span class="nav-text">Class</span>
-                        </a>
-                    </li>
-
-                    <li><a href="/dbadmin-jenisrawan" class="ai-icon" aria-expanded="false">
-                            <i class="flaticon-381-settings-2"></i>
-                            <span class="nav-text">vulnerability type</span>
-                        </a>
-                    </li>
-
-                    <li><a href="/dbadmin-jeniskonseling" class="ai-icon" aria-expanded="false">
-                            <i class="flaticon-044-file"></i>
-                            <span class="nav-text">Counseling type</span>
-                        </a>
-                    </li>
-
-
-                </ul>
+                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                        <i class="flaticon-061-puzzle"></i>
+                        <span class="nav-text">schedule</span>
+                    </a>
+                    <ul aria-expanded="false">
+                        <li><a href="chart-flot.html">private guidance</a></li>
+                        <li><a href="chart-morris.html">group conceling</a></li>
+                    </ul>
+                </li>
+            </ul>
 
                 @elsecan('isGurubk')
                 <ul class="metismenu" id="menu">
 					<li class="nav-label first">Main Menu</li>
 					
-					<li><a href="/dbgurubk" class="ai-icon" aria-expanded="false">
+					<li><a href="/dashboard" class="ai-icon" aria-expanded="false">
 							<i class="flaticon-144-layout"></i>
 							<span class="nav-text">Home</span>
 						</a>
@@ -1113,7 +1093,7 @@
 
 					
 					<li class="nav-label">Apps</li>
-					<li><a href="/dbgurubk-form-pk" class="ai-icon" aria-expanded="false">
+					<li><a href="/dbgurubk-petakerawanan" class="ai-icon" aria-expanded="false">
 						<i class="flaticon-049-copy"></i>
 						<span class="nav-text">vulnerability map</span>
 					</a>
@@ -1138,11 +1118,11 @@
                     <li class="nav-label">components</li>
 
                
-                    <li><a href="/dbadmin-jenisrawan" class="ai-icon" aria-expanded="false">
+                    {{-- <li><a href="/dbadmin-jenisrawan" class="ai-icon" aria-expanded="false">
                             <i class="flaticon-381-settings-2"></i>
                             <span class="nav-text">vulnerability type</span>
                         </a>
-                    </li>
+                    </li> --}}
 
                     <li><a href="/dbadmin-jeniskonseling" class="ai-icon" aria-expanded="false">
                             <i class="flaticon-044-file"></i>
@@ -1163,7 +1143,7 @@
                 <ul class="metismenu" id="menu">
 					<li class="nav-label first">Main Menu</li>
 					
-					<li><a href="/dbsiswa" class="ai-icon" aria-expanded="false">
+					<li><a href="/dashboard" class="ai-icon" aria-expanded="false">
 							<i class="flaticon-144-layout"></i>
 							<span class="nav-text">Home</span>
 						</a>
@@ -1190,20 +1170,16 @@
 						</ul>
 					</li>
 
-                    <li class="nav-label">components</li>
+                    {{-- <li class="nav-label">components</li>
 
                
                     <li><a href="/dbadmin-jenisrawan" class="ai-icon" aria-expanded="false">
                             <i class="flaticon-381-settings-2"></i>
                             <span class="nav-text">vulnerability type</span>
                         </a>
-                    </li>
+                    </li> --}}
 
-                    <li><a href="/dbadmin-jeniskonseling" class="ai-icon" aria-expanded="false">
-                            <i class="flaticon-044-file"></i>
-                            <span class="nav-text">Counseling type</span>
-                        </a>
-                    </li>
+                 
 					
 				</ul>
 
@@ -1275,6 +1251,8 @@
     <script src="{{ asset('js/styleSwitcher.js') }}"></script> --}}
 
     <!-- Required vendors -->
+    <script src="{{ asset('vendor/select2/js/select2.full.min.js') }}"></script>
+    <script src="{{ asset('js/plugins-init/select2-init.js') }}"></script>
     <script data-cfasync="false" src="{{ asset('../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js') }}">
     </script>
     <script src="{{ asset('vendor/global/global.min.js') }}"></script>
@@ -1284,7 +1262,7 @@
     <script src="{{ asset('vendor/datatables/js/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('js/plugins-init/datatables.init.js') }}"></script>
     <script src="{{ asset('js/custom.min.js') }}"></script>
-    <script src="{{ asset('vendor/select2/js/select2.full.min.js') }}"></script>
+  
     <script src="{{ asset('js/deznav-init.js') }}"></script>
     <script src="{{ asset('js/demo.js') }}"></script>
     <script src="{{ asset('js/styleSwitcher.js') }}"></script>

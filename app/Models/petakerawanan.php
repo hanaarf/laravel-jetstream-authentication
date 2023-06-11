@@ -11,7 +11,7 @@ class petakerawanan extends Model
     protected $table = 'petakerawanan';
 
     protected $fillable = [
-        'jenisrawan_id','siswa_id','walas_id','kesimpulan'
+        'jenis_kerawanan','siswa_id','walas_id','kesimpulan'
     ];
 
     // public function walas()
@@ -81,5 +81,35 @@ class petakerawanan extends Model
     public function jenisrawan3()
     {
         return $this->belongsTo(jenisrawan::class);
+    }
+
+
+    //tgl11
+  
+
+    public function walas()
+    {
+        return $this->belongsTo(walas::class);
+    }
+
+    public function jenisRawan()
+    {
+        return $this->belongsTo(jenisrawan::class);
+    }
+
+    //12
+    public function siswa5()
+    {
+        return $this->belongsTo(siswa::class, 'siswa_id');
+    }
+
+    public function walas5()
+    {
+        return $this->belongsTo(walas::class, 'walas_id');
+    }
+
+    public function jenisRawan5()
+    {
+        return $this->belongsTo(jenisrawan::class, 'jenisrawan_id');
     }
 }

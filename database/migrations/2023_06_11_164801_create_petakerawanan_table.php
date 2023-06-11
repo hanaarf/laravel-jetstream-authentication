@@ -13,8 +13,9 @@ return new class extends Migration
     {
         Schema::create('petakerawanan', function (Blueprint $table) {
             $table->id();
-            $table->unsignedbiginteger('jenisrawan_id')->require();
-            $table->foreign('jenisrawan_id')->references('id')->on('jenisrawan')->onDelete('restrict');
+            // $table->unsignedbiginteger('jenisrawan_id')->require();
+            // $table->foreign('jenisrawan_id')->references('id')->on('jenisrawan')->onDelete('restrict');
+            $table->string('jenis_kerawanan')->nullable();
             $table->unsignedbiginteger('walas_id')->require();
             $table->foreign('walas_id')->references('id')->on('walas')->onDelete('restrict');
             $table->unsignedbiginteger('siswa_id')->require();
@@ -30,8 +31,8 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('petakerawanan', function (Blueprint $table) {
-            $table->dropForeign(['jenisrawan_id']);
-            $table->dropColumn('jenisrawan_id');
+            // $table->dropForeign(['jenisrawan_id']);
+            // $table->dropColumn('jenisrawan_id');
             $table->dropForeign(['walas_id']);
             $table->dropColumn('walas_id');
             $table->dropForeign(['siswa_id']);

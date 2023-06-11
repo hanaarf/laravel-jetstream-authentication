@@ -47,7 +47,7 @@ class User extends Authenticatable
             return $this->hasOne(walas::class);
         }
 
-        public function walas()
+        public function walas() 
         {
             return $this->hasOne(walas::class);
         }

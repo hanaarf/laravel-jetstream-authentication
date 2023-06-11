@@ -25,9 +25,9 @@ class DatabaseSeeder extends Seeder
             walasSedeer::class,
             kelasSedeer::class,
             siswaSedeer::class,
-            jenisrawanSedeer::class,
+            // jenisrawanSedeer::class,
             jeniskonselingSedeer::class,
-          petakerawananSedeer::class,
+            // petakerawananSedeer::class,
         ]);
     }
 }

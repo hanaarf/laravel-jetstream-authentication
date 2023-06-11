@@ -72,46 +72,14 @@
                             </tr>
                         </thead>
                        <tbody>
-                            {{-- @foreach ($petakerawanan as $item)
-                            <tr>
-                                <td>{{ $item->id }}</td>
-                                <td><a href="javascript:void(0);"><strong>{{ $item->jenisrawanid->name }}</strong></a></td>
-                                <td><a href="javascript:void(0);"><strong>{{ $item->siswaid->name }}</strong></a></td>
-                                <td><a href="javascript:void(0);"><strong>{{ $item->walasid->name }}</strong></a></td>
-                                <td></td>
-                                <td>
-                                    <span style="display: flex">
-                                        <a href="/dbadmin/{{ $item->id }}/editpk">
-                                            <button type="submit" class="ml-3 btn btn-primary shadow btn-xs sharp"><i class="fa fa-pencil color-muted"></i>  </button>
-                                        </a><br>
-                                      
-                                        <form action="/dbadmin-hapuspk/{{ $item->id }}" method="POST"
-                                            onsubmit="return confirm('yakin hapus?')">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="ml-3 btn btn-warning shadow btn-xs sharp"><i class="fa fa-close color-danger"></i> </button>
-                                        </form>
-                                    </span>
-                                </td>
-                            </tr>
-                            @endforeach --}}
-
-
-                            {{-- @foreach($peta as $item)
-                            <tr>
-                                <td>{{$loop->iteration}}</td>
-                                <td>{{$item->siswa->name}}</td>
-                                <td></td>
-                            </tr>
-                            @endforeach --}}
-
+                        
 
                             @foreach ($petaKerawanans as $key => $petaKerawanan)
                             <tr>
                                 {{-- <td>{{ $key + 1 }}</td> --}}
                                 <td>{{ $petaKerawanan->id }}</td>
                                 <td>{{ $petaKerawanan->siswa->name }}</td>
-                                <td>{{ $petaKerawanan->jenisKerawanan1->name }}</td>
+                                <td>{{ $petaKerawanan->jenis_kerawanan }}</td>
                                 <td>{{ $petaKerawanan->kesimpulan }}</td>
                                 <td>
                                     <span style="display: flex">
