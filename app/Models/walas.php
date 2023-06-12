@@ -69,4 +69,16 @@ class walas extends Model
     {
         return $this->hasOne(kelas::class, 'walas_id');
     }
+
+    public function kelas6()
+    {
+        return $this->hasOne(kelas::class);
+    }
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+    public function siswas(){
+        return $this->hasMany(siswa::class);
+    }
 }

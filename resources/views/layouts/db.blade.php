@@ -813,7 +813,7 @@
                                 </div>
                             </li>
                             <li class="nav-item dropdown notification_dropdown">
-                                <a class="nav-link bell bell-link" href="javascript:void(0)">
+                                <a class="nav-link bell" href="/dashboard/chat">
                                     <svg width="24" height="24" viewbox="0 0 28 28" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
                                         <path
@@ -1079,6 +1079,11 @@
                         <li><a href="chart-morris.html">group conceling</a></li>
                     </ul>
                 </li>
+                <li><a href="widget-basic.html" class="ai-icon" aria-expanded="false">
+                    <i class="flaticon-381-settings-2"></i>
+                    <span class="nav-text">History</span>
+                </a>
+            </li>
             </ul>
 
                 @elsecan('isGurubk')

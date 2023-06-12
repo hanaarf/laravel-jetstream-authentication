@@ -169,12 +169,19 @@ class petakerawanancontroller extends Controller
     public function edit($id)
     {
       
-        $petakerawanan = petakerawanan::with('jenisrawanid','siswaid','walasid')->findOrFail($id);
-        $jenisrawanid = jenisrawan::where('id', '!=', $petakerawanan->jenisrawan_id)->get(['id','name']);
-        $siswaid = siswa::where('id', '!=', $petakerawanan->siswa_id)->get(['id','name']);
-        $walasid = walas::where('id', '!=', $petakerawanan->walas_id)->get(['id','name']);
+        // $petakerawanan = petakerawanan::with('jenisrawanid','siswaid','walasid')->findOrFail($id);
+        // $jenisrawanid = jenisrawan::where('id', '!=', $petakerawanan->jenisrawan_id)->get(['id','name']);
+        // $siswaid = siswa::where('id', '!=', $petakerawanan->siswa_id)->get(['id','name']);
+        // $walasid = walas::where('id', '!=', $petakerawanan->walas_id)->get(['id','name']);
+        // return view('walas.update.pk',['petakerawanan' => $petakerawanan, 'jenisrawanid' => $jenisrawanid, 'siswaid' => $siswaid, 'walasid' => $walasid]);
 
-        return view('walas.update.pk',['petakerawanan' => $petakerawanan, 'jenisrawanid' => $jenisrawanid, 'siswaid' => $siswaid, 'walasid' => $walasid]);
+        $user = Auth::user();
+        $walas = $user->walas;
+        $siswa = $walas->kelas6->siswa;
+        $petaKerawanan = petakerawanan::findOrFail($id);
+        return view('walas.update.pk', compact('walas','siswa', 'petaKerawanan'));
+    
+        
     }
 
     /**
@@ -182,8 +189,13 @@ class petakerawanancontroller extends Controller
      */
     public function update(Request $request, $id)
     {
-        $petakerawanan = petakerawanan::findorFail($id);
-        $petakerawanan->update($request->except(['_token','submit']));
+        // $petakerawanan = petakerawanan::findorFail($id);
+        // $petakerawanan->update($request->except(['_token','submit']));
+        $jenisKerawanan = implode(',', $request->jenis_kerawanan);
+        $petaKerawanan = petakerawanan::findOrFail($id);
+        $petaKerawanan->siswa_id = $request->siswa_id;
+        $petaKerawanan->jenis_kerawanan = $jenisKerawanan;
+        $petaKerawanan->save();
         return redirect('dbwalas-petakerawanan')
         ->with('success','data User berhasil diedit');
     }
