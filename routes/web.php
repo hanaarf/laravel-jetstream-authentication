@@ -6,6 +6,7 @@ use App\Http\Controllers\gurubkcontroller;
 use App\Http\Controllers\petakerawanancontroller;
 use App\Http\Controllers\admincontroller;
 use App\Http\Controllers\walascontroller;
+use App\Http\Controllers\siswacontroller;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -167,6 +168,34 @@ Route::middleware(['auth', 'role:gurubk'])->group(function () {
     Route::put('/dbgurubk/{id}/editpk', [petakerawananController::class, 'updatepk']);
     Route::delete('/dbgurubk-hapuspk/{id}', [petakerawananController::class, 'destroypk']);
 });
+
+Route::middleware(['auth', 'role:siswa'])->group(function () {
+    // buatkonseling
+    Route::get('/dbsiswa-konselingpribadi', [siswacontroller::class, 'index']);
+    Route::get('/dbsiswa-form-konselingpribadi', [siswacontroller::class, 'create']);
+    Route::post('/dbsiswa-form-konselingpribadi', [siswacontroller::class, 'store']);
+    // Route::get('/dbsiswa/{id}/editkonselingpribadi', [siswacontroller::class, 'edit']);
+    // Route::put('/dbsiswa/{id}/editkonselingpribadi', [siswacontroller::class, 'update']);
+    Route::delete('/dbsiswa-hapuskonselingpribadi/{id}', [siswacontroller::class, 'destroy']);
+
+
+
+    //buatliatdata
+    Route::get('/dbsiswa-kp', [siswacontroller::class, 'indexkp']);
+    Route::get('/dbsiswa-form-kp', [siswacontroller::class, 'create']);
+    Route::post('/dbsiswa-form-kp', [siswacontroller::class, 'store']);
+    Route::get('/dbsiswa/{id}/editkp', [siswacontroller::class, 'edit']);
+    Route::put('/dbsiswa/{id}/editkp', [siswacontroller::class, 'update']);
+    Route::delete('/dbsiswa-hapuskp/{id}', [siswacontroller::class, 'destroy']);
+
+
+
+
+
+});
+
+
+
 
 
 // alluser

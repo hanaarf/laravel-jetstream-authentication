@@ -83,5 +83,15 @@ class siswa extends Model
     {
         return $this->belongsTo(kelas::class, 'kelas_id');
     }
+    //13
+    public function kelas7()
+    {
+        return $this->belongsTo(kelas::class, 'kelas_id');
+    }
+
+    public function user7()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
    
 }

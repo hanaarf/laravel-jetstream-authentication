@@ -63,6 +63,16 @@ class guru extends Model
     {
         return $this->hasOne(kelas::class, 'guru_id');
     }
+    //13
+    public function user7()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
+    public function kelas7()
+    {
+        return $this->hasOne(kelas::class, 'gurubk_id');
+    }
 
 
 }

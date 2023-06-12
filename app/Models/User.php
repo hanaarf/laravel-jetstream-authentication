@@ -86,6 +86,23 @@ class User extends Authenticatable
         }
 
 
+        //13
+        public function siswa7()
+        {
+            return $this->hasOne(siswa::class, 'user_id');
+        }
+    
+        public function guru7()
+        {
+            return $this->hasOne(guru::class, 'user_id');
+        }
+    
+        public function walas7()
+        {
+            return $this->hasOne(walas::class, 'user_id');
+        }
+
+
     /**
      * The attributes that should be hidden for serialization.
      *

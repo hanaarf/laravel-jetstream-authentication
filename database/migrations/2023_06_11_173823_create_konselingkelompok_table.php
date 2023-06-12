@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('konselingkelompok', function (Blueprint $table) {
             $table->id();
+            $table->string('deskripsi');
             $table->unsignedbiginteger('jeniskonseling_id')->require();
             $table->foreign('jeniskonseling_id')->references('id')->on('jeniskonseling')->onDelete('restrict');
             $table->unsignedbiginteger('siswa_id')->require();
@@ -21,8 +22,10 @@ return new class extends Migration
             $table->foreign('gurubk_id')->references('id')->on('gurubk')->onDelete('restrict');
             $table->unsignedbiginteger('walas_id')->require();
             $table->foreign('walas_id')->references('id')->on('walas')->onDelete('restrict');
-            $table->enum('status', ['waiting','approved','done', 'rejected','canceled']);
-            $table->dateTime('tanggal');
+            $table->enum('status', ['waiting','approved','done', 'reschedule','canceled']);
+            $table->date('tanggal');
+            $table->string('jam');
+            $table->string('tempat');
             $table->string('hasil')->nullable();
             $table->timestamps();
         });

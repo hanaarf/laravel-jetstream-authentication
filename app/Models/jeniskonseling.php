@@ -13,4 +13,10 @@ class jeniskonseling extends Model
     protected $fillable = [
         'name'
     ];
+
+    //13
+    public function konselingPribadi7()
+    {
+        return $this->hasMany(konselingpribadi::class, 'jeniskonseling_id');
+    }
 }

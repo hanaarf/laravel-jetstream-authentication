@@ -16,6 +16,7 @@
     <!-- Favicon icon -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <!-- Favicon icon -->
+    <link href="{{ asset('vendor/clockpicker/css/bootstrap-clockpicker.min.css') }}" rel="stylesheet">
     <link rel="icon" type="image/png" sizes="16x16" href=" {{ asset('images/profile/tb.png') }}">
     <!-- Datatable -->
     <link href="{{ asset('vendor/datatables/css/jquery.dataTables.min.css') }}" rel="stylesheet">
@@ -1064,8 +1065,8 @@
 							<span class="nav-text">making guidance</span>
 						</a>
                         <ul aria-expanded="false">
-                            <li><a href="app-profile.html">private guidance</a></li>
-							<li><a href="post-details.html">group conceling</a></li>
+                            <li><a href="/dbsiswa-form-konselingpribadi">private guidance</a></li>
+                            <li><a href="/dbsiswa-form-konselingkelompok">group conceling</a></li>
                           
                         </ul>
                     </li>
@@ -1075,8 +1076,24 @@
                         <span class="nav-text">schedule</span>
                     </a>
                     <ul aria-expanded="false">
-                        <li><a href="chart-flot.html">private guidance</a></li>
-                        <li><a href="chart-morris.html">group conceling</a></li>
+                        <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">private guidance</a>
+                            <ul aria-expanded="false">
+                                <li><a href="/dbsiswa-kp">All data</a></li>
+                                <li><a href="/dbsiswa-kp-private">Private counceling</a></li>
+                                <li><a href="/dbsiswa-kp-sosial">Social counceling</a></li>
+                                <li><a href="/dbsiswa-kp-karir">Career counceling</a></li>
+                                <li><a href="/dbsiswa-kp-belajar">Tutoring</a></li>
+                            </ul>
+                        </li>
+                        <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">Group guidance</a>
+                            <ul aria-expanded="false">
+                                <li><a href="/dbsiswa-kp">All data</a></li>
+                                <li><a href="/dbsiswa-kp-private">Private counceling</a></li>
+                                <li><a href="/dbsiswa-kp-sosial">Social counceling</a></li>
+                                <li><a href="/dbsiswa-kp-karir">Career counceling</a></li>
+                                <li><a href="/dbsiswa-kp-belajar">Tutoring</a></li>
+                            </ul>
+                        </li>
                     </ul>
                 </li>
                 <li><a href="widget-basic.html" class="ai-icon" aria-expanded="false">
@@ -1274,6 +1291,10 @@
     <!-- Chart piety plugin files -->
     <script src="{{ asset('vendor/peity/jquery.peity.min.js') }}"></script>
 
+    <!-- clockpicker -->
+    <script src="{{ asset('vendor/clockpicker/js/bootstrap-clockpicker.min.js') }}"></script>
+    <!-- Clockpicker init -->
+    <script src="{{ asset('js/plugins-init/clock-picker-init.js') }}"></script>
 
     <!-- Apex Chart -->
     <script src="{{ asset('vendor/apexchart/apexchart.js') }}"></script>

@@ -81,4 +81,15 @@ class walas extends Model
     public function siswas(){
         return $this->hasMany(siswa::class);
     }
+
+    //13
+    public function user7()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
+    public function kelas7()
+    {
+        return $this->hasOne(kelas::class, 'walas_id');
+    }
 }
