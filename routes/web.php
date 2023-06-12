@@ -106,12 +106,12 @@ Route::middleware(['role:admin'])->group(function () {
 
 
 // jenisrawan
-Route::get('/dbadmin-jenisrawan', [admincontroller::class, 'indexjenisrawan']);
-Route::get('/dbadmin-form-jenisrawan', [admincontroller::class, 'createjenisrawan']);
-Route::post('/dbadmin-form-jenisrawan', [admincontroller::class, 'storejenisrawan']);
-Route::get('/dbadmin/{id}/editjenisrawan', [admincontroller::class, 'editjenisrawan']);
-Route::put('/dbadmin-simpaneditjenisrawan/{id}', [admincontroller::class, 'updatejenisrawan']);
-Route::delete('/dbadmin-hapusjenisrawan/{id}', [admincontroller::class, 'destroyjenisrawan']);
+// Route::get('/dbadmin-jenisrawan', [admincontroller::class, 'indexjenisrawan']);
+// Route::get('/dbadmin-form-jenisrawan', [admincontroller::class, 'createjenisrawan']);
+// Route::post('/dbadmin-form-jenisrawan', [admincontroller::class, 'storejenisrawan']);
+// Route::get('/dbadmin/{id}/editjenisrawan', [admincontroller::class, 'editjenisrawan']);
+// Route::put('/dbadmin-simpaneditjenisrawan/{id}', [admincontroller::class, 'updatejenisrawan']);
+// Route::delete('/dbadmin-hapusjenisrawan/{id}', [admincontroller::class, 'destroyjenisrawan']);
 
 
 // jeniskonseling
@@ -167,6 +167,17 @@ Route::middleware(['auth', 'role:gurubk'])->group(function () {
     Route::get('/dbgurubk/{id}/editpk', [petakerawananController::class, 'editpk']);
     Route::put('/dbgurubk/{id}/editpk', [petakerawananController::class, 'updatepk']);
     Route::delete('/dbgurubk-hapuspk/{id}', [petakerawananController::class, 'destroypk']);
+
+
+
+
+
+    //konseling
+    Route::get('/dbgurubk-history', [gurubkcontroller::class, 'historykonseling']);
+    Route::get('/dbgurubk-pribadi', [gurubkcontroller::class, 'indexpribadi']);
+    Route::get('/dbgurubk-sosial', [gurubkcontroller::class, 'indexsosial']);
+    Route::get('/dbgurubk-karir', [gurubkcontroller::class, 'indexkarir']);
+    Route::get('/dbgurubk-belajar', [gurubkcontroller::class, 'indexbelajar']);
 });
 
 Route::middleware(['auth', 'role:siswa'])->group(function () {
@@ -179,9 +190,14 @@ Route::middleware(['auth', 'role:siswa'])->group(function () {
     Route::delete('/dbsiswa-hapuskonselingpribadi/{id}', [siswacontroller::class, 'destroy']);
 
 
-
-    //buatliatdata
+    
+    //buatdatakonseling
     Route::get('/dbsiswa-kp', [siswacontroller::class, 'indexkp']);
+    Route::get('/dbsiswa-kp-private', [siswacontroller::class, 'indexkpPrivate']);
+    Route::get('/dbsiswa-kp-sosial', [siswacontroller::class, 'indexkpSosial']);
+    Route::get('/dbsiswa-kp-karir', [siswacontroller::class, 'indexkpkarir']);
+    Route::get('/dbsiswa-kp-belajar', [siswacontroller::class, 'indexkpbelajar']);
+    Route::get('/dbsiswa-kp-history', [siswacontroller::class, 'indexkphistory']);
     Route::get('/dbsiswa-form-kp', [siswacontroller::class, 'create']);
     Route::post('/dbsiswa-form-kp', [siswacontroller::class, 'store']);
     Route::get('/dbsiswa/{id}/editkp', [siswacontroller::class, 'edit']);

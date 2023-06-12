@@ -67,12 +67,13 @@
                             <tr>
                                 <th>No</th>
                                 <th>Description</th>
-                                <th>jenis layanan</th>
+                                <th>jenis</th>
                                 <th>Date</th>
                                 <th>Time </th>
                                 <th>Place</th>
                                 <th>Status </th>
                                 <th>Counsultant</th>
+                                {{-- <th>HR Teacher</th> --}}
                             </tr>
                         </thead>
                         <tbody>
@@ -91,7 +92,7 @@
                                     </span>
                                 </td>
                                 <td>{{$item->gurubkid->name}}</td>
-                                <td>{{$item->walasid->name}}</td>
+                                {{-- <td>{{$item->walasid->name}}</td> --}}
                                 {{-- <td>
                                     <span style="display: flex">
 

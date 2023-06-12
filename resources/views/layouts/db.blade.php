@@ -1087,16 +1087,16 @@
                         </li>
                         <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">Group guidance</a>
                             <ul aria-expanded="false">
-                                <li><a href="/dbsiswa-kp">All data</a></li>
-                                <li><a href="/dbsiswa-kp-private">Private counceling</a></li>
-                                <li><a href="/dbsiswa-kp-sosial">Social counceling</a></li>
-                                <li><a href="/dbsiswa-kp-karir">Career counceling</a></li>
-                                <li><a href="/dbsiswa-kp-belajar">Tutoring</a></li>
+                                <li><a href="/dbsiswa-kk">All data</a></li>
+                                <li><a href="/dbsiswa-kk-private">Private counceling</a></li>
+                                <li><a href="/dbsiswa-kk-sosial">Social counceling</a></li>
+                                <li><a href="/dbsiswa-kk-karir">Career counceling</a></li>
+                                <li><a href="/dbsiswa-kk-belajar">Tutoring</a></li>
                             </ul>
                         </li>
                     </ul>
                 </li>
-                <li><a href="widget-basic.html" class="ai-icon" aria-expanded="false">
+                <li><a href="/dbsiswa-kp-history" class="ai-icon" aria-expanded="false">
                     <i class="flaticon-381-settings-2"></i>
                     <span class="nav-text">History</span>
                 </a>
@@ -1120,17 +1120,25 @@
 						<span class="nav-text">vulnerability map</span>
 					</a>
 					</li>
+                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                        <i class="flaticon-061-puzzle"></i>
+							<span class="nav-text">making guidance</span>
+						</a>
+                        <ul aria-expanded="false">
+                            <li><a href="/dbgurubk-form-konselingPuniv">university socialization</a></li>
+                            <li><a href="/dbgurubk-form-konselingPtutorimng">tutoring</a></li>
+                          
+                        </ul>
+                    </li>
 					<li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
 							<i class="flaticon-077-menu-1"></i>
 							<span class="nav-text">schedule</span>
 						</a>
 						<ul aria-expanded="false">
-                            <li><a href="/dbgurubk-lihat-bpribadi">personal guidance</a></li>
-                            <li><a href="/dbgurubk-lihat-bsosial">social guidance</a></li>
-                            <li><a href="/dbgurubk-lihat-bkarir">career socialization guidance</a></li>
-                            <li><a href="/dbgurubk-lihat-bbelajar">tutoring</a></li>
-
-							
+                            <li><a href="/dbgurubk-pribadi">personal guidance</a></li>
+                            <li><a href="/dbgurubk-sosial">social guidance</a></li>
+                            <li><a href="/dbgurubk-karir">career socialization guidance</a></li>
+                            <li><a href="/dbgurubk-belajar">tutoring</a></li>
 						</ul>
 					</li>
 
@@ -1151,6 +1159,12 @@
                             <span class="nav-text">Counseling type</span>
                         </a>
                     </li>
+
+                    <li><a href="/dbgurubk-history" class="ai-icon" aria-expanded="false">
+                        <i class="flaticon-381-settings-2"></i>
+                        <span class="nav-text">History</span>
+                    </a>
+                </li>
 
 					{{-- <li><a href="/dbgurubk-datapeta" class="ai-icon" aria-expanded="false">
 						<i class="flaticon-003-diamond"></i>

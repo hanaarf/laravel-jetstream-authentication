@@ -13,6 +13,10 @@ class konselingpribadi extends Model
         'jeniskonseling_id','siswa_id','gurubk_id','walas_id','status','tanggal','jam','tempat','hasil','deskripsi'
     ];
 
+    public function jeniskonseling(){
+        return $this->belongsTo(jeniskonseling::class, 'jeniskonseling_id', 'id');
+    }
+
 
     //13
     public function siswa7()
@@ -45,5 +49,27 @@ class konselingpribadi extends Model
 
     public function gurubkid(){
         return $this->belongsTo(guru::class, 'gurubk_id', 'id');
+    }
+
+
+    //tgl14
+    public function siswa8()
+    {
+        return $this->belongsTo(siswa::class, 'siswa_id');
+    }
+
+    public function guruBK8()
+    {
+        return $this->belongsTo(guru::class, 'gurubk_id');
+    }
+
+    public function waliKelas8()
+    {
+        return $this->belongsTo(walas::class, 'walas_id');
+    }
+
+    public function jenisKonseling8()
+    {
+        return $this->belongsTo(jeniskonseling::class, 'jeniskonseling_id');
     }
 }

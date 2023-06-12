@@ -41,7 +41,7 @@ class siswacontroller extends Controller
         $walas = $kelas->walas;
         $gurubk = $kelas->guru;
         $jeniskonseling = jeniskonseling::all();
-        return view('dbsiswa-kp', compact('siswa', 'walas', 'gurubk','jeniskonseling'));
+        return view('siswa.create.form-kp', compact('siswa', 'walas', 'gurubk','jeniskonseling'));
 
     }
 
@@ -64,7 +64,7 @@ class siswacontroller extends Controller
 
         $input = $request->all();
         konselingpribadi::create($input);
-        return redirect('siswa.create.form-kp')
+        return redirect('dbsiswa-kp')
             ->with('success','data guru berhasil diinput');
     }
 
@@ -111,8 +111,60 @@ class siswacontroller extends Controller
 
         $user = Auth::user();
         $konselingpribadi = konselingpribadi::where('siswa_id', $user->siswa->id)->get();
-
         // $konselingpribadi = konselingpribadi::with('walasid','siswaid','gurubkid')->get();
+        $id_siswa = Auth::user()->siswa->id;
+        $konselingpribadi = konselingpribadi::where('siswa_id', $id_siswa)
+            ->where('status', ['waiting', 'approved', 'reschedule'])
+            ->get();
+
         return view('siswa.konselingP',['konselingpribadi'=> $konselingpribadi]);
+    }
+
+
+    public function indexkpPrivate()
+    {
+        $id_siswa = Auth::user()->siswa->id;
+        $konselingpribadi = konselingpribadi::where('siswa_id', $id_siswa)
+        ->whereIn('status', ['waiting', 'approved', 'reschedule'])
+        ->where('jeniskonseling_id', 1)
+            ->get();
+        return view('siswa.konselingPprivate',['konselingpribadi'=> $konselingpribadi]);
+    }
+    public function indexkpSosial()
+    {
+        $id_siswa = Auth::user()->siswa->id;
+        $konselingpribadi = konselingpribadi::where('siswa_id', $id_siswa)
+        ->whereIn('status', ['waiting', 'approved', 'reschedule'])
+        ->where('jeniskonseling_id', 2)
+            ->get();
+        return view('siswa.konselingPsosial',['konselingpribadi'=> $konselingpribadi]);
+    }
+    public function indexkpkarir()
+    {
+        $id_siswa = Auth::user()->siswa->id;
+        $konselingpribadi = konselingpribadi::where('siswa_id', $id_siswa)
+        ->whereIn('status', ['waiting', 'approved', 'reschedule'])
+        ->where('jeniskonseling_id', 3)
+            ->get();
+        return view('siswa.konselingPkarir',['konselingpribadi'=> $konselingpribadi]);
+    }
+    public function indexkpbelajar()
+    {
+        $id_siswa = Auth::user()->siswa->id;
+        $konselingpribadi = konselingpribadi::where('siswa_id', $id_siswa)
+        ->whereIn('status', ['waiting', 'approved', 'reschedule'])
+        ->where('jeniskonseling_id', 4)
+            ->get();
+        return view('siswa.konselingPbelajar',['konselingpribadi'=> $konselingpribadi]);
+    }
+
+
+    public function indexkphistory()
+    {
+        $id_siswa = Auth::user()->siswa->id;
+        $konselingpribadi = konselingpribadi::where('siswa_id', $id_siswa)
+            ->where('status', 'done')
+            ->get();
+        return view('siswa.konselingPhistory',['konselingpribadi'=> $konselingpribadi]);
     }
 }

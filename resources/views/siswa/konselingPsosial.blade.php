@@ -67,12 +67,12 @@
                             <tr>
                                 <th>No</th>
                                 <th>Description</th>
-                                <th>jenis layanan</th>
                                 <th>Date</th>
                                 <th>Time </th>
                                 <th>Place</th>
                                 <th>Status </th>
                                 <th>Counsultant</th>
+                                <th>HR Teacher</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -80,7 +80,6 @@
                             <tr>
                                 <td>{{$loop->iteration}}</td>
                                 <td>{{$item->deskripsi}}</td>
-                                <td><a href="javascript:void(0);"><strong>{{ $item->jeniskonseling->name }}</strong></a></td>
                                 <td>{{$item->tanggal}}</td>
                                 <td>{{$item->jam}}</td>
                                 <td>{{$item->tempat}}</td>
