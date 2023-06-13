@@ -95,7 +95,6 @@ class gurubkcontroller extends Controller
 
     public function  indexpribadi()
     {
-       
         $id_gurubk = Auth::user()->guru->id;
         $konselingpribadi = konselingpribadi::where('gurubk_id', $id_gurubk)
         ->whereIn('status', ['waiting', 'approved', 'reschedule'])
@@ -103,6 +102,24 @@ class gurubkcontroller extends Controller
             ->get();
         return view('guru.konselingpribadi',['konselingpribadi'=> $konselingpribadi]);
     }
+    public function editpribadi($id)
+      {
+          $konselingpribadi = konselingpribadi::with('siswa8','guruBK8','waliKelas8')->findOrFail($id);
+          return view('guru.update.konselingpribadi',['konselingpribadi' => $konselingpribadi]);
+      }
+      public function updatepribadi(Request $request, $id)
+      {
+          $konselingpribadi = konselingpribadi::findorFail($id);
+          $konselingpribadi->update($request->all());
+          return redirect('/dbgurubk-pribadi')
+          ->with('success','data User berhasil diedit');
+      }
+
+
+
+
+
+
 
 
     public function  indexsosial()
@@ -115,6 +132,20 @@ class gurubkcontroller extends Controller
             ->get();
         return view('guru.konselingsosial',['konselingpribadi'=> $konselingpribadi]);
     }
+    public function editsosial($id)
+    {
+        $konselingpribadi = konselingpribadi::with('siswa8','guruBK8','waliKelas8')->findOrFail($id);
+        return view('guru.update.konselingsosial',['konselingpribadi' => $konselingpribadi]);
+    }
+    public function updatesosial(Request $request, $id)
+    {
+        $konselingpribadi = konselingpribadi::findorFail($id);
+        $konselingpribadi->update($request->all());
+        return redirect('/dbgurubk-sosial')
+        ->with('success','data User berhasil diedit');
+    }
+
+
 
 
     public function  indexkarir()
@@ -127,6 +158,19 @@ class gurubkcontroller extends Controller
             ->get();
         return view('guru.konselingkarir',['konselingpribadi'=> $konselingpribadi]);
     }
+    public function editkarir($id)
+    {
+        $konselingpribadi = konselingpribadi::with('siswa8','guruBK8','waliKelas8')->findOrFail($id);
+        return view('guru.update.konselingkarir',['konselingpribadi' => $konselingpribadi]);
+    }
+    public function updatekarir(Request $request, $id)
+    {
+        $konselingpribadi = konselingpribadi::findorFail($id);
+        $konselingpribadi->update($request->all());
+        return redirect('/dbgurubk-karir')
+        ->with('success','data User berhasil diedit');
+    }
+
 
 
     public function  indexbelajar()
@@ -138,6 +182,18 @@ class gurubkcontroller extends Controller
         ->where('jeniskonseling_id', 4)
             ->get();
         return view('guru.konselingbelajar',['konselingpribadi'=> $konselingpribadi]);
+    }
+    public function editbelajar($id)
+    {
+        $konselingpribadi = konselingpribadi::with('siswa8','guruBK8','waliKelas8')->findOrFail($id);
+        return view('guru.update.konselingbelajar',['konselingpribadi' => $konselingpribadi]);
+    }
+    public function updatebelajar(Request $request, $id)
+    {
+        $konselingpribadi = konselingpribadi::findorFail($id);
+        $konselingpribadi->update($request->all());
+        return redirect('/dbgurubk-belajar')
+        ->with('success','data User berhasil diedit');
     }
    
 }

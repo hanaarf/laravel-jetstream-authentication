@@ -149,6 +149,16 @@ Route::middleware(['auth', 'role:walas'])->group(function () {
     Route::get('/dbwalas/{id}/editpk', [petakerawananController::class, 'edit']);
     Route::put('/dbwalas/{id}/editpk', [petakerawananController::class, 'update']);
     Route::delete('/dbwalas-hapuspk/{id}', [petakerawananController::class, 'destroy']);
+
+
+
+
+    //konseling
+    Route::get('/dbwalas-kp-private', [walascontroller::class, 'indexkpPrivate']);
+    Route::get('/dbwalas-kp-sosial', [walascontroller::class, 'indexkpSosial']);
+    Route::get('/dbwalas-kp-karir', [walascontroller::class, 'indexkpkarir']);
+    Route::get('/dbwalas-kp-belajar', [walascontroller::class, 'indexkpbelajar']);
+    Route::get('/dbwalas-kp-history', [walascontroller::class, 'indexkphistory']);
 });
 
 
@@ -174,7 +184,21 @@ Route::middleware(['auth', 'role:gurubk'])->group(function () {
 
     //konseling
     Route::get('/dbgurubk-history', [gurubkcontroller::class, 'historykonseling']);
+
     Route::get('/dbgurubk-pribadi', [gurubkcontroller::class, 'indexpribadi']);
+    Route::get('/dbgurubk/{id}/editpribadi', [gurubkcontroller::class, 'editpribadi']);
+    Route::put('/dbgurubk/{id}/editpribadi', [gurubkcontroller::class, 'updatepribadi']);
+
+    Route::get('/dbgurubk/{id}/editsosial', [gurubkcontroller::class, 'editsosial']);
+    Route::put('/dbgurubk/{id}/editsosial', [gurubkcontroller::class, 'updatesosial']);
+
+    Route::get('/dbgurubk/{id}/editkarir', [gurubkcontroller::class, 'editkarir']);
+    Route::put('/dbgurubk/{id}/editkarir', [gurubkcontroller::class, 'updatekarir']);
+
+    Route::get('/dbgurubk/{id}/editbelajar', [gurubkcontroller::class, 'editbelajar']);
+    Route::put('/dbgurubk/{id}/editbelajar', [gurubkcontroller::class, 'updatebelajar']);
+
+
     Route::get('/dbgurubk-sosial', [gurubkcontroller::class, 'indexsosial']);
     Route::get('/dbgurubk-karir', [gurubkcontroller::class, 'indexkarir']);
     Route::get('/dbgurubk-belajar', [gurubkcontroller::class, 'indexbelajar']);
@@ -184,7 +208,9 @@ Route::middleware(['auth', 'role:siswa'])->group(function () {
     // buatkonseling
     Route::get('/dbsiswa-konselingpribadi', [siswacontroller::class, 'index']);
     Route::get('/dbsiswa-form-konselingpribadi', [siswacontroller::class, 'create']);
+    Route::get('/dbsiswa-form-konselingkelompok', [siswacontroller::class, 'createk']);
     Route::post('/dbsiswa-form-konselingpribadi', [siswacontroller::class, 'store']);
+    Route::post('/dbsiswa-form-konselingkelompok', [siswacontroller::class, 'storek']);
     // Route::get('/dbsiswa/{id}/editkonselingpribadi', [siswacontroller::class, 'edit']);
     // Route::put('/dbsiswa/{id}/editkonselingpribadi', [siswacontroller::class, 'update']);
     Route::delete('/dbsiswa-hapuskonselingpribadi/{id}', [siswacontroller::class, 'destroy']);

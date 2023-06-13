@@ -1085,7 +1085,7 @@
                                 <li><a href="/dbsiswa-kp-belajar">Tutoring</a></li>
                             </ul>
                         </li>
-                        <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">Group guidance</a>
+                        {{-- <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">Group guidance</a>
                             <ul aria-expanded="false">
                                 <li><a href="/dbsiswa-kk">All data</a></li>
                                 <li><a href="/dbsiswa-kk-private">Private counceling</a></li>
@@ -1093,7 +1093,26 @@
                                 <li><a href="/dbsiswa-kk-karir">Career counceling</a></li>
                                 <li><a href="/dbsiswa-kk-belajar">Tutoring</a></li>
                             </ul>
+                        </li> --}}
+                    </ul>
+
+                    <ul aria-expanded="false">
+                        <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">Group counceling</a>
+                            <ul aria-expanded="false">
+                                <li><a href="/dbsiswa-kk">All data</a></li>
+                                <li><a href="/dbsiswa-kk-private">univ socialisation</a></li>
+                                <li><a href="/dbsiswa-kk-sosial">Social counceling</a></li>
+                            </ul>
                         </li>
+                        {{-- <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">Group guidance</a>
+                            <ul aria-expanded="false">
+                                <li><a href="/dbsiswa-kk">All data</a></li>
+                                <li><a href="/dbsiswa-kk-private">Private counceling</a></li>
+                                <li><a href="/dbsiswa-kk-sosial">Social counceling</a></li>
+                                <li><a href="/dbsiswa-kk-karir">Career counceling</a></li>
+                                <li><a href="/dbsiswa-kk-belajar">Tutoring</a></li>
+                            </ul>
+                        </li> --}}
                     </ul>
                 </li>
                 <li><a href="/dbsiswa-kp-history" class="ai-icon" aria-expanded="false">
@@ -1197,15 +1216,21 @@
 							<span class="nav-text">see schedule</span>
 						</a>
 						<ul aria-expanded="false">
-                            <li><a href="/dbsiswa-lihat-bpribadi">personal guidance</a></li>
-                            <li><a href="/dbsiswa-lihat-bsosial">social guidance</a></li>
-                            <li><a href="/dbsiswa-lihat-bkarir">career socialization guidance</a></li>
-                            <li><a href="/dbsiswa-lihat-bbelajar">tutoring</a></li>
+                            <li><a href="/dbwalas-kp-private">personal guidance</a></li>
+                            <li><a href="/dbwalas-kp-sosial">social guidance</a></li>
+                            <li><a href="/dbwalas-kp-karir">career socialization guidance</a></li>
+                            <li><a href="/dbwalas-kp-belajar">tutoring</a></li>
 
 							
 						</ul>
 					</li>
 
+
+                    <li><a href="/dbwalas-kp-history" class="ai-icon" aria-expanded="false">
+                        <i class="flaticon-144-layout"></i>
+                        <span class="nav-text">History</span>
+                    </a>
+                    </li>
                     {{-- <li class="nav-label">components</li>
 
                

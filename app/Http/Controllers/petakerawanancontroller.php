@@ -62,7 +62,8 @@ class petakerawanancontroller extends Controller
     {
         $user = auth()->user();
         $walas = walas::where('user_id', $user->id)->first();
-        $siswa = siswa::where('kelas_id', $walas->kelas1->id)->get();
+        // $siswa = siswa::where('kelas_id', $walas->kelas1->id)->get();
+        $siswa = $walas->kelas1->siswa()->whereDoesntHave('kerawanan2')->get();
         $jenisKerawanan = jenisrawan::all();
         return view('walas.create.pk', compact('user', 'walas', 'siswa', 'jenisKerawanan'));
 
@@ -83,27 +84,35 @@ class petakerawanancontroller extends Controller
      */
     public function store(Request $request)
     {
-        $validator = Validator::make($request->all(), [
-            'jenis_kerawanan' => 'required',
-        ]);
+        // $validator = Validator::make($request->all(), [
+        //     'jenis_kerawanan' => 'required',
+        // ]);
 
      
-        if ($validator->fails()) {
-            return redirect()->back()->withErrors($validator)->withInput();
-        }
+        // if ($validator->fails()) {
+        //     return redirect()->back()->withErrors($validator)->withInput();
+        // }
 
 
-        $validated = $request->validate([
-            'jenis_kerawanan' => 'required|array',
+        // $validated = $request->validate([
+        //     'jenis_kerawanan' => 'required|array',
+        // ]);
+
+        // foreach ($request->jenis_kerawanan as $jenisrawanId) {
+        //     petakerawanan::create([
+        //         'siswa_id' => $request->siswa_id,
+        //         'walas_id' => $request->walas_id,
+        //         'jenis_kerawanan' => $jenisrawanId,
+        //     ]);
+        // }
+
+        $jenisKerawanan = implode(',', $request->jenis_kerawanan);
+        $petaKerawanan = petakerawanan::create([
+            'siswa_id' => $request->siswa_id,
+            'walas_id' => $request->walas_id,
+            'jenis_kerawanan' => $jenisKerawanan,
+            'kesimpulan' => $request->kesimpulan
         ]);
-
-        foreach ($request->jenis_kerawanan as $jenisrawanId) {
-            petakerawanan::create([
-                'siswa_id' => $request->siswa_id,
-                'walas_id' => $request->walas_id,
-                'jenis_kerawanan' => $jenisrawanId,
-            ]);
-        }
         return redirect('/dbwalas-petakerawanan')->with('success','data walas berhasil diinput');
 
 
@@ -288,7 +297,8 @@ class petakerawanancontroller extends Controller
     {
         $kelas = kelas::findOrFail($id);
         $wakel = $kelas->walas;
-        $siswa = siswa::where("kelas_id",$id)->get();
+        // $siswa = siswa::where("kelas_id",$id)->get();
+        $siswa = $wakel->kelas2->siswa5()->whereDoesntHave('kerawanan2')->get();
         return view('guru.create.kelas-siswa', compact('siswa','wakel'));
     }
 
@@ -298,31 +308,38 @@ class petakerawanancontroller extends Controller
     public function storepkguru(Request $request)
     {
        
-        $validator = Validator::make($request->all(), [
-            'jenis_kerawanan' => 'required',
-        ]);
+        // $validator = Validator::make($request->all(), [
+        //     'jenis_kerawanan' => 'required',
+        // ]);
 
      
-        if ($validator->fails()) {
-            return redirect()->back()->withErrors($validator)->withInput();
-        }
+        // if ($validator->fails()) {
+        //     return redirect()->back()->withErrors($validator)->withInput();
+        // }
 
 
-        $validated = $request->validate([
-            'jenis_kerawanan' => 'required|array',
-        ]);
+        // $validated = $request->validate([
+        //     'jenis_kerawanan' => 'required|array',
+        // ]);
 
       
      
-            foreach ($request->jenis_kerawanan as $jenisrawanId) {
-                petakerawanan::create([
-                    'siswa_id' => $request->siswa_id,
-                    'walas_id' => $request->walas_id,
-                    'jenis_kerawanan' => $jenisrawanId,
-                    'kesimpulan' => $request->kesimpulan
-                ]);
-            }
+        //     foreach ($request->jenis_kerawanan as $jenisrawanId) {
+        //         petakerawanan::create([
+        //             'siswa_id' => $request->siswa_id,
+        //             'walas_id' => $request->walas_id,
+        //             'jenis_kerawanan' => $jenisrawanId,
+        //             'kesimpulan' => $request->kesimpulan
+        //         ]);
+        //     }
         
+        $jenisKerawanan = implode(',', $request->jenis_kerawanan);
+        $petaKerawanan = petakerawanan::create([
+            'siswa_id' => $request->siswa_id,
+            'walas_id' => $request->walas_id,
+            'jenis_kerawanan' => $jenisKerawanan,
+            'kesimpulan' => $request->kesimpulan
+        ]);
         
             return redirect('dbgurubk-petakerawanan')->with('succes', 'Kerawanan siswa berhasil ditambahkamn');
     }

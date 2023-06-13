@@ -2,7 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use Hash;
+use Session;
+use App\Models\guru;
+use App\Models\User;
+use App\Models\kelas;
+use App\Models\siswa;
 use App\Models\walas;
+use App\Models\jeniskonseling;
+use App\Models\konselingpribadi;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class walascontroller extends Controller
@@ -69,4 +79,70 @@ class walascontroller extends Controller
 
         return view('profile.update-profile-information-form', compact('walas'));
     }
+
+
+
+
+    //konseling
+    public function indexkp()
+    {
+
+        $user = Auth::user();
+        $konselingpribadi = konselingpribadi::where('siswa_id', $user->siswa->id)->get();
+        // $konselingpribadi = konselingpribadi::with('walasid','siswaid','gurubkid')->get();
+        $id_siswa = Auth::user()->siswa->id;
+        $konselingpribadi = konselingpribadi::where('siswa_id', $id_siswa)
+            ->where('status', ['waiting', 'approved', 'reschedule'])
+            ->get();
+
+        return view('siswa.konselingP',['konselingpribadi'=> $konselingpribadi]);
+    }
+
+
+    public function indexkpPrivate()
+    {
+        $id_walas = Auth::user()->walas->id;
+        $konselingpribadi = konselingpribadi::where('walas_id', $id_walas)
+        ->whereIn('status', ['waiting', 'approved', 'reschedule'])
+        ->where('jeniskonseling_id', 1)
+            ->get();
+        return view('walas.konselingPprivate',['konselingpribadi'=> $konselingpribadi]);
+    }
+    public function indexkpSosial()
+    {
+        $id_walas = Auth::user()->walas->id;
+        $konselingpribadi = konselingpribadi::where('walas_id', $id_walas)
+        ->whereIn('status', ['waiting', 'approved', 'reschedule'])
+        ->where('jeniskonseling_id', 2)
+            ->get();
+        return view('walas.konselingPsosial',['konselingpribadi'=> $konselingpribadi]);
+    }
+    public function indexkpkarir()
+    {
+        $id_walas = Auth::user()->walas->id;
+        $konselingpribadi = konselingpribadi::where('walas_id', $id_walas)
+        ->whereIn('status', ['waiting', 'approved', 'reschedule'])
+        ->where('jeniskonseling_id', 3)
+            ->get();
+        return view('walas.konselingPkarir',['konselingpribadi'=> $konselingpribadi]);
+    }
+    public function indexkpbelajar()
+    {
+        $id_walas = Auth::user()->walas->id;
+        $konselingpribadi = konselingpribadi::where('walas_id', $id_walas)
+        ->whereIn('status', ['waiting', 'approved', 'reschedule'])
+        ->where('jeniskonseling_id', 4)
+            ->get();
+        return view('walas.konselingPbelajar',['konselingpribadi'=> $konselingpribadi]);
+    }
+
+    public function indexkphistory()
+    {
+        $id_walas = Auth::user()->walas->id;
+        $konselingpribadi = konselingpribadi::where('walas_id', $id_walas)
+            ->where('status', 'done')
+            ->get();
+        return view('walas.konselingPhistory',['konselingpribadi'=> $konselingpribadi]);
+    }
+
 }

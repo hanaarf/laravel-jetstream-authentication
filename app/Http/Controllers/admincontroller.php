@@ -92,16 +92,45 @@ class admincontroller extends Controller
     }
     public function storeguru(Request $request)
     {
-        $request->validate([
-            'name' => 'required',
-            'nipd' => 'required',
-            'user_id' => 'required',
-            'ttl' => 'required',
-            'gender' => 'required',
+        // $request->validate([
+        //     'name' => 'required',
+        //     'nipd' => 'required',
+        //     'gender' => 'required',
+        //     'ttl' => 'required',
+        //     'role' => 'required',
+        //     'email' => 'required|email|unique:users',
+        //     'password' => 'required|min:8',
+        // ]);
+
+        $user = User::create([
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+            'role' => $request->input('role'),
+            'password' => bcrypt($request->input('password')),
+        ]);
+        
+
+        $userId = $user->id;
+
+        $siswa = guru::create([
+            'user_id' => $userId,
+            'nipd' => $request->input('nipd'),
+            'name' => $request->input('name'),
+            'ttl' => $request->input('ttl'),
+            'gender' => $request->input('gender'),
         ]);
 
-        $input = $request->all();
-        guru::create($input);
+
+        // $request->validate([
+        //     'name' => 'required',
+        //     'nipd' => 'required',
+        //     'user_id' => 'required',
+        //     'ttl' => 'required',
+        //     'gender' => 'required',
+        // ]);
+
+        // $input = $request->all();
+        // guru::create($input);
         return redirect('/dbadmin-gurubk')
             ->with('success','data guru berhasil diinput');
     }
@@ -153,17 +182,38 @@ class admincontroller extends Controller
       }
       public function storesiswa(Request $request)
       {
-          $request->validate([
-            'name' => 'required',
-            'nisn' => 'required',
-            'user_id' => 'required',
-            'kelas_id' => 'required',
-            'ttl' => 'required',
-            'gender' => 'required',
-          ]);
+        //   $request->validate([
+        //     'name' => 'required',
+        //     'nisn' => 'required',
+        //     'user_id' => 'required',
+        //     'kelas_id' => 'required',
+        //     'ttl' => 'required',
+        //     'gender' => 'required',
+        //   ]);
   
-          $input = $request->all();
-          siswa::create($input);
+        //   $input = $request->all();
+        //   siswa::create($input);
+
+        $user = User::create([
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+            'role' => $request->input('role'),
+            'password' => bcrypt($request->input('password')),
+        ]);
+        
+
+        $userId = $user->id;
+
+        $siswa = siswa::create([
+            'user_id' => $userId,
+            'nisn' => $request->input('nisn'),
+            'name' => $request->input('name'),
+            'kelas_id' => $request->input('kelas_id'),
+            'ttl' => $request->input('ttl'),
+            'gender' => $request->input('gender'),
+        ]);
+
+        
           return redirect('/dbadmin-murid')
               ->with('success','data siswa berhasil diinput');
       }
@@ -214,16 +264,35 @@ class admincontroller extends Controller
       }
       public function storewalas(Request $request)
       {
-          $request->validate([
-              'name' => 'required',
-              'nipd' => 'required',
-              'user_id' => 'required',
-              'ttl' => 'required',
-              'gender' => 'required',
-          ]);
+        //   $request->validate([
+        //       'name' => 'required',
+        //       'nipd' => 'required',
+        //       'user_id' => 'required',
+        //       'ttl' => 'required',
+        //       'gender' => 'required',
+        //   ]);
   
-          $input = $request->all();
-          walas::create($input);
+        //   $input = $request->all();
+        //   walas::create($input);
+
+
+        $user = User::create([
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+            'role' => $request->input('role'),
+            'password' => bcrypt($request->input('password')),
+        ]);
+        
+
+        $userId = $user->id;
+
+        $siswa = walas::create([
+            'user_id' => $userId,
+            'nipd' => $request->input('nipd'),
+            'name' => $request->input('name'),
+            'ttl' => $request->input('ttl'),
+            'gender' => $request->input('gender'),
+        ]);
           return redirect('/dbadmin-walas')
               ->with('success','data walas berhasil diinput');
       }
@@ -333,7 +402,9 @@ class admincontroller extends Controller
       }
       public function createkelas()
       {
+       
           $guru = guru::all();
+
           $walas = walas::all();
           return view('admin.create.kelas',['guru'=> $guru,'walas' => $walas]);
       }

@@ -107,7 +107,6 @@
                                 </x-button>
                             </div>
                         </form> --}}
-
                         <form  method="POST" action="/dbadmin-form-gurubk" enctype="multipart/form-data">
                             @csrf
                             <div class="form-row">
@@ -116,30 +115,31 @@
                                     <input name="name" type="text" class="form-control" placeholder="name">
                                 </div>
                                 <div class="form-group col-md-6">
+                                    <label>Email</label>
+                                    <input name="email" type="email" class="form-control" placeholder="name">
+                                </div>
+                                <div class="form-group col-md-6">
                                     <label>nipd</label>
                                     <input name="nipd" type="text" class="form-control" placeholder="nipd">
                                 </div>
-                              
-                                    <div class="form-group col-md-12">
-                                        <label>user id</label>
-                                        <select name="user_id" class="form-control default-select" id="maapel">
-                                            @foreach ($user as $item)
-                                                <option value="{{ $item->id }}">{{ $item->name }}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                            
-                                <div class="form-group col-md-12">
+                        
+                                <input type="text" name="role" value="gurubk" style="display: none">
+                        
+                                <div class="form-group col-md-6">
                                     <label>ttl</label>
                                     <input name="ttl" type="date" class="form-control" placeholder="ttl">
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <label>password</label>
+                                    <input name="password" type="text" class="form-control" placeholder="password">
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-12">
                                     <label>gender</label>
                                     <select name="gender" id="inputState" class="form-control default-select">
-                                        <option>pria</option>
-                                        <option>wanita</option>
+                                        <option value="pria">pria</option>
+                                        <option value="wanita">wanita</option>
                                     </select>
                                 </div>
                             </div>

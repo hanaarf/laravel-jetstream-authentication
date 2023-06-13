@@ -69,14 +69,26 @@
                                     <input name="nisn" type="text" class="form-control" placeholder="nipd">
                                 </div>
 
-                                <div class="form-group col-md-12">
+                                <div class="form-group col-md-6">
+                                    <label>Email</label>
+                                    <input name="email" type="email" class="form-control" placeholder="name">
+                                </div>
+
+                                <div class="form-group col-md-6">
+                                    <label>password</label>
+                                    <input name="password" type="password" class="form-control" placeholder="pw">
+                                </div>
+
+                                {{-- <div class="form-group col-md-12">
                                     <label>user id</label>
                                     <select name="user_id" class="form-control default-select" id="single-select">
                                         @foreach ($user as $item)
                                         <option value="{{ $item->id }}">{{ $item->name }}</option>
                                         @endforeach
                                     </select>
-                                </div>
+                                </div> --}}
+
+                                <input type="text" name="role" value="siswa" style="display: none">
 
                                 <div class="form-group col-md-12">
                                     <label>kelas id</label>
