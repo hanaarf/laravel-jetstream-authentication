@@ -410,7 +410,10 @@ class admincontroller extends Controller
        
           $guru = guru::all();
 
-          $walas = walas::all();
+
+        //   $siswa = $walas->kelas1->siswa()->whereDoesntHave('kerawanan2')->get();
+  
+          $walas = walas::whereDoesntHave('kelas2')->get();
           return view('admin.create.kelas',['guru'=> $guru,'walas' => $walas]);
       }
       public function storekelas(Request $request)
