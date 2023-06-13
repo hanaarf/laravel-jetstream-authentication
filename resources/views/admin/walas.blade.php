@@ -88,7 +88,7 @@
                                     @endforeach
                                 </strong></a></td>
                                 <td>{{ $item->nipd }}</td>
-                                <td>detail</td>
+                                <td><a href="/dbadmin/detailwalas/{{ $item->id }}"><div class="badge badge-primary">detail</div></a></td>
                                 <td>
                                     <div class="d-flex">
                                         <a href="/dbadmin/{{ $item->id }}/editwalas" ><button type="button" class="ml-3 mb-1 btn btn-primary shadow btn-xs sharp mr-1">   <i class="mdi mdi-border-color"></i> </button></a>

@@ -24,6 +24,7 @@
     <link href="{{ asset('vendor/bootstrap-select/dist/css/bootstrap-select.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
+    <link href="{{ asset('vendor/fullcalendar/css/main.min.css" rel="stylesheet') }}">
     <link rel="stylesheet" href="{{ asset('vendor/select2/css/select2.min.css') }}">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
@@ -1312,6 +1313,10 @@
     <script src="{{ asset('js/styleSwitcher.js') }}"></script> --}}
 
     <!-- Required vendors -->
+
+    <script src="{{ asset('vendor/fullcalendar/js/main.min.js') }}"></script>
+	<script src="{{ asset('js/plugins-init/fullcalendar-init.js') }}"></script>
+
     <script src="{{ asset('vendor/select2/js/select2.full.min.js') }}"></script>
     <script src="{{ asset('js/plugins-init/select2-init.js') }}"></script>
     <script data-cfasync="false" src="{{ asset('../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js') }}">
@@ -1329,6 +1334,7 @@
     <script src="{{ asset('js/styleSwitcher.js') }}"></script>
     <!-- Chart piety plugin files -->
     <script src="{{ asset('vendor/peity/jquery.peity.min.js') }}"></script>
+     <script src="{{ asset('vendor/moment/moment.min.js') }}"></script>
 
     <!-- clockpicker -->
     <script src="{{ asset('vendor/clockpicker/js/bootstrap-clockpicker.min.js') }}"></script>

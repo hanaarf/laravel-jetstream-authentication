@@ -136,9 +136,10 @@ class admincontroller extends Controller
         return redirect('/dbadmin-gurubk')
             ->with('success','data guru berhasil diinput');
     }
-    public function showguru(User $user)
+    public function showguru($id)
     {
-        //
+        $guru = guru::findOrFail($id);
+           return view('admin.detailguru', ['guru' => $guru]);
     }
     public function editguru($id)
     {
@@ -219,9 +220,10 @@ class admincontroller extends Controller
           return redirect('/dbadmin-murid')
               ->with('success','data siswa berhasil diinput');
       }
-      public function showsiswa(User $user)
+      public function showsiswa($id)
       {
-          //
+            $siswa = siswa::findOrFail($id);
+           return view('admin.detailsiswa', ['siswa' => $siswa]);
       }
       public function editsiswa($id)
       {
@@ -298,9 +300,10 @@ class admincontroller extends Controller
           return redirect('/dbadmin-walas')
               ->with('success','data walas berhasil diinput');
       }
-      public function showwalas(User $user)
+      public function showwalas($id)
       {
-          //
+        $walas = walas::findOrFail($id);
+        return view('admin.detailwalas', ['walas' => $walas]);
       }
       public function editwalas($id)
       {

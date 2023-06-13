@@ -3,6 +3,7 @@
 use App\Models\User;
 use App\Models\kelas;
 use App\Http\Controllers\gurubkcontroller;
+use App\Http\Controllers\dbcontroller;
 use App\Http\Controllers\petakerawanancontroller;
 use App\Http\Controllers\admincontroller;
 use App\Http\Controllers\walascontroller;
@@ -44,20 +45,14 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified'
 ])->group(function () {
-    Route::get('/dashboard', function () {
-        // $user = Auth::user();
-        // dd($user);
+    // Route::get('/dashboard', function () {
+    //     return view('dashboard');
+    // })->name('dashboard');
 
-        // $user = User::with('guru')->find(Auth::id());
-        // $id = $user->guru->id;
+    Route::get('/dashboard', [dbcontroller::class, 'index']);
 
-        // $kelas = kelas::where('gurubk_id', $id)->get();
-        // dd($kelas);
 
-        // dd(auth()->user()->getRoleNames());
 
-        return view('dashboard');
-    })->name('dashboard');
     Route::get('walas-page', function() {
         return 'Halaman untuk walas';
     })->middleware('role:walas')->name('admin.page');
@@ -93,6 +88,7 @@ Route::middleware(['role:admin'])->group(function () {
     Route::get('/dbadmin/{id}/editgurubk', [admincontroller::class, 'editguru']);
     Route::put('/dbadmin-simpaneditgurubk/{id}', [admincontroller::class, 'updateguru']);
     Route::delete('/dbadmin-hapusgurubk/{id}', [admincontroller::class, 'destroyguru']);
+    Route::get('/dbadmin/detailguru/{id}', [admincontroller::class, 'showguru']);
 
 
     // walas
@@ -102,6 +98,7 @@ Route::middleware(['role:admin'])->group(function () {
     Route::get('/dbadmin/{id}/editwalas', [admincontroller::class, 'editwalas']);
     Route::put('/dbadmin-simpaneditwalas/{id}', [admincontroller::class, 'updatewalas']);
     Route::delete('/dbadmin-hapuswalas/{id}', [admincontroller::class, 'destroywalas']);
+    Route::get('/dbadmin/detailwalas/{id}', [admincontroller::class, 'showwalas']);
 
     // siswa
     Route::get('/dbadmin-murid', [admincontroller::class, 'indexsiswa']);
@@ -110,6 +107,7 @@ Route::middleware(['role:admin'])->group(function () {
     Route::get('/dbadmin/{id}/editsiswa', [admincontroller::class, 'editsiswa']);
     Route::put('/dbadmin-simpaneditsiswa/{id}', [admincontroller::class, 'updatesiswa']);
     Route::delete('/dbadmin-hapussiswa/{id}', [admincontroller::class, 'destroysiswa']);
+    Route::get('/dbadmin/detailsiswa/{id}', [admincontroller::class, 'showsiswa']);
 });
 
 
