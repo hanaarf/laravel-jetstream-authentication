@@ -1100,7 +1100,7 @@
                         <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">Group counceling</a>
                             <ul aria-expanded="false">
                                 <li><a href="/dbsiswa-kk">All data</a></li>
-                                <li><a href="/dbsiswa-kk-private">univ socialisation</a></li>
+                                {{-- <li><a href="/dbsiswa-kk-private">univ socialisation</a></li> --}}
                                 <li><a href="/dbsiswa-kk-sosial">Social counceling</a></li>
                             </ul>
                         </li>
@@ -1144,8 +1144,8 @@
 							<span class="nav-text">making guidance</span>
 						</a>
                         <ul aria-expanded="false">
-                            <li><a href="/dbgurubk-form-konselingPuniv">university socialization</a></li>
-                            <li><a href="/dbgurubk-form-konselingPtutorimng">tutoring</a></li>
+                            {{-- <li><a href="/dbgurubk-form-konselingPuniv">university socialization</a></li> --}}
+                            <li><a href="/dbgurubk-form-tutoring">tutoring</a></li>
                           
                         </ul>
                     </li>
@@ -1154,6 +1154,7 @@
 							<span class="nav-text">schedule</span>
 						</a>
 						<ul aria-expanded="false">
+                            <li><a href="/dbgurubk-kp">All counceling</a></li>
                             <li><a href="/dbgurubk-pribadi">personal guidance</a></li>
                             <li><a href="/dbgurubk-sosial">social guidance</a></li>
                             <li><a href="/dbgurubk-karir">career socialization guidance</a></li>

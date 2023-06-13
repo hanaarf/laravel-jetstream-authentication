@@ -179,30 +179,43 @@ Route::middleware(['auth', 'role:gurubk'])->group(function () {
     Route::delete('/dbgurubk-hapuspk/{id}', [petakerawananController::class, 'destroypk']);
 
 
+    Route::get('/dbgurubk-form-tutoring', [gurubkcontroller::class, 'createtutoringkelas']);
+    Route::get('/dbgurubk-formtutor-kelas/{id}', [gurubkcontroller::class, 'kelastutoring']);
+    Route::post('/dbgurubk-formtutor-kelas', [gurubkcontroller::class, 'storetutoring']);
 
 
 
     //konseling
     Route::get('/dbgurubk-history', [gurubkcontroller::class, 'historykonseling']);
-
     Route::get('/dbgurubk-pribadi', [gurubkcontroller::class, 'indexpribadi']);
     Route::get('/dbgurubk/{id}/editpribadi', [gurubkcontroller::class, 'editpribadi']);
     Route::put('/dbgurubk/{id}/editpribadi', [gurubkcontroller::class, 'updatepribadi']);
-
     Route::get('/dbgurubk/{id}/editsosial', [gurubkcontroller::class, 'editsosial']);
     Route::put('/dbgurubk/{id}/editsosial', [gurubkcontroller::class, 'updatesosial']);
-
     Route::get('/dbgurubk/{id}/editkarir', [gurubkcontroller::class, 'editkarir']);
     Route::put('/dbgurubk/{id}/editkarir', [gurubkcontroller::class, 'updatekarir']);
-
     Route::get('/dbgurubk/{id}/editbelajar', [gurubkcontroller::class, 'editbelajar']);
     Route::put('/dbgurubk/{id}/editbelajar', [gurubkcontroller::class, 'updatebelajar']);
 
 
+    Route::get('/dbgurubk-form-konselingpribadi', [siswacontroller::class, 'createuniv']);
+
+
+    Route::get('/dbgurubk-kp', [gurubkcontroller::class, 'indexkp']);
     Route::get('/dbgurubk-sosial', [gurubkcontroller::class, 'indexsosial']);
     Route::get('/dbgurubk-karir', [gurubkcontroller::class, 'indexkarir']);
     Route::get('/dbgurubk-belajar', [gurubkcontroller::class, 'indexbelajar']);
 });
+
+
+
+
+
+
+
+
+
+
 
 Route::middleware(['auth', 'role:siswa'])->group(function () {
     // buatkonseling

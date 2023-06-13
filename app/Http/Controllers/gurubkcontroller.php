@@ -91,6 +91,17 @@ class gurubkcontroller extends Controller
         return view('guru.konselinghistory',['konselingpribadi'=> $konselingpribadi]);
     }
 
+    public function indexkp()
+    {
+
+        $id_gurubk = Auth::user()->guru->id;
+        $konselingpribadi = konselingpribadi::where('gurubk_id', $id_gurubk)
+        ->whereIn('status', ['waiting', 'approved', 'reschedule'])
+            ->get();
+
+        return view('guru.konselingP',['konselingpribadi'=> $konselingpribadi]);
+    }
+
 
 
     public function  indexpribadi()
@@ -196,4 +207,48 @@ class gurubkcontroller extends Controller
         ->with('success','data User berhasil diedit');
     }
    
+    public function createtutoringkelas()
+    {
+        $guru = Auth::user()->guru;
+        $kelas = $guru->kelas;
+
+        return view('guru.create.tutorkelas', compact('kelas'));
+
+    }
+    public function kelastutoring($id)
+    {
+        $user = auth()->user();
+        $gurubk = guru::where('user_id', $user->id)->first();
+        $kelas = kelas::findOrFail($id);
+        $wakel = $kelas->walas;
+        $siswa = $wakel->kelas2->siswa5()->get();
+        $jeniskonseling = jeniskonseling::whereIn('id', [4])->get();
+        return view('guru.create.tutorsiswa', compact('siswa','wakel','gurubk','jeniskonseling'));
+    }
+
+   
+
+  
+    public function storetutoring(Request $request)
+    {
+       
+        $request->validate([
+            'siswa_id' => 'required',
+            'walas_id' => 'required',
+            'gurubk_id' => 'required',
+            'status' => 'required',
+            'jeniskonseling_id' => 'required',
+            'deskripsi' => 'required',
+            'tanggal' => 'required',
+            'jam' => 'required',
+            'tempat' => 'required',
+        ]);
+
+        $input = $request->all();
+        konselingpribadi::create($input);
+            return redirect('dbgurubk-kp')->with('succes', 'Kerawanan siswa berhasil ditambahkamn');
+    }
+
+
+
 }
