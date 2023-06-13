@@ -6,6 +6,8 @@ use App\Http\Controllers\gurubkcontroller;
 use App\Http\Controllers\petakerawanancontroller;
 use App\Http\Controllers\admincontroller;
 use App\Http\Controllers\walascontroller;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\sosialisasicontroller;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\siswacontroller;
 use Illuminate\Support\Facades\Route;
@@ -21,6 +23,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::post('/auth/register', [AuthController::class, 'Register']);
+Route::post('/auth/login', [AuthController::class, 'Login']);
+
+Route::get('/auth/siswa', [AuthController::class, 'jadwal']);
 
 // Route::get('/nipd/{id}', 'walascontroller@Nipd');
 // Route::get('/nipd/{id}', 'gurubkcontroller@Nipd');
@@ -63,7 +69,7 @@ Route::middleware([
 Route::middleware(['role:admin'])->group(function () {
     Route::get('/siswa/export', [admincontroller::class, 'exportSiswa']);
 
-    
+
     // alluser
     Route::get('/dbadmin-alluser', [admincontroller::class, 'indexuser']);
     Route::get('/dbadmin-form-alluser', [admincontroller::class, 'createuser']);
@@ -209,6 +215,15 @@ Route::middleware(['auth', 'role:gurubk'])->group(function () {
     Route::get('/dbgurubk-sosial', [gurubkcontroller::class, 'indexsosial']);
     Route::get('/dbgurubk-karir', [gurubkcontroller::class, 'indexkarir']);
     Route::get('/dbgurubk-belajar', [gurubkcontroller::class, 'indexbelajar']);
+
+
+    //sosialisasi
+    Route::get('/dbgurubk-sosialisasi', [sosialisasicontroller::class, 'index']);
+    Route::get('/dbgurubk-form-sosialisasi', [sosialisasicontroller::class, 'create']);
+    Route::post('/dbgurubk-form-sosialisasi', [sosialisasicontroller::class, 'store']);
+    Route::get('/dbgurubk/{id}/editsosialisasi', [sosialisasicontroller::class, 'edit']);
+    Route::put('/dbgurubk-simpaneditsosialisasi/{id}', [sosialisasicontroller::class, 'update']);
+    Route::delete('/dbgurubk-hapussosialisasi/{id}', [sosialisasicontroller::class, 'destroy']);
 });
 
 
@@ -233,6 +248,8 @@ Route::middleware(['auth', 'role:siswa'])->group(function () {
     Route::delete('/dbsiswa-hapuskonselingpribadi/{id}', [siswacontroller::class, 'destroy']);
 
 
+    //sosialisasi
+    Route::get('/dbsiswa-sosialisasi', [sosialisasicontroller::class, 'indexsiswa']);
     
     //buatdatakonseling
     Route::get('/dbsiswa-kp', [siswacontroller::class, 'indexkp']);

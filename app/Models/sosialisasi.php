@@ -9,4 +9,8 @@ class sosialisasi extends Model
 {
     use HasFactory;
     protected $table = 'sosialisasi';
+
+    protected $fillable = [
+        'judul','deskripsi','tempat','tanggal','jam'
+    ];
 }

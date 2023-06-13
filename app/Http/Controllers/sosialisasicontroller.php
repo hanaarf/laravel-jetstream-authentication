@@ -27,12 +27,18 @@ class sosialisasicontroller extends Controller
         return view('guru.sosialisasi', ['sosialisasi'=>$sosialisasi]);
     }
 
+    public function indexsiswa()
+    {
+        $sosialisasi = sosialisasi::all();
+        return view('siswa.sosialisasi', ['sosialisasi'=>$sosialisasi]);
+    }
+
     /**
      * Show the form for creating a new resource.
      */
     public function create()
     {
-        //
+        return view('guru.create.sosialisasi');
     }
 
     /**
@@ -40,7 +46,26 @@ class sosialisasicontroller extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'judul' => 'required',
+            'deskripsi' => 'required',
+            'tempat' => 'required',
+            'tanggal' => 'required',
+            'jam' => 'required',
+        ]);
+
+        $data = $request->all();
+
+        sosialisasi::create([
+            'judul'  =>  $data['judul'],
+            'deskripsi' =>  $data['deskripsi'],
+            'tempat' =>  $data['tempat'],
+            'tanggal' =>  $data['tanggal'],
+            'jam' =>  $data['jam'],
+        ]);
+
+        return redirect('/dbgurubk-sosialisasi')
+            ->with('success','data pelanggaran berhasil diinput');
     }
 
     /**
@@ -54,24 +79,33 @@ class sosialisasicontroller extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(sosialisasi $sosialisasi)
+    public function edit($id)
     {
-        //
+        $sosialisasi = sosialisasi::findorFail($id);
+        return view('guru.update.sosialisasi',['sosialisasi' => $sosialisasi]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, sosialisasi $sosialisasi)
+    public function update(Request $request, $id)
     {
-        //
+        $sosialisasi = sosialisasi::findorFail($id);
+        $sosialisasi->update($request->except(['_token','submit']));
+        return redirect('/dbgurubk-sosialisasi')
+        ->with('success','data User berhasil diedit');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(sosialisasi $sosialisasi)
+    public function destroy($id)
     {
-        //
+        Schema::disableForeignKeyConstraints();
+        $sosialisasi = sosialisasi::findorFail($id);
+        $sosialisasi -> delete();
+        Schema::enableForeignKeyConstraints();
+        return redirect('/dbgurubk-sosialisasi')
+        ->with('success','data sosialisasi berhasil dihapus');
     }
 }
