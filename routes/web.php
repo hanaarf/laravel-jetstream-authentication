@@ -6,6 +6,7 @@ use App\Http\Controllers\gurubkcontroller;
 use App\Http\Controllers\petakerawanancontroller;
 use App\Http\Controllers\admincontroller;
 use App\Http\Controllers\walascontroller;
+use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\siswacontroller;
 use Illuminate\Support\Facades\Route;
 
@@ -60,6 +61,9 @@ Route::middleware([
 
 
 Route::middleware(['role:admin'])->group(function () {
+    Route::get('/siswa/export', [admincontroller::class, 'exportSiswa']);
+
+    
     // alluser
     Route::get('/dbadmin-alluser', [admincontroller::class, 'indexuser']);
     Route::get('/dbadmin-form-alluser', [admincontroller::class, 'createuser']);

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use Hash;
 use Session;
 use App\Models\guru;
@@ -48,18 +49,25 @@ class siswacontroller extends Controller
 
     public function createK()
     {
-        // $user = auth()->user();
+      
         // $siswa = siswa::where('user_id', $user->id)->first();
         // return view('siswa.create.form-kp', compact('user', 'siswa',));
 
-
-        $user = Auth::user();
+        $user = User::with('siswa')->find(Auth::id());
         $siswa1 = $user->siswa;
         $kelas1 = $siswa1->kelas;
+
+        $kelasid = $user->kelas_id;
+        $kelas = kelas::where('id', $user->siswa->kelas_id)->get();
+
         $walas1 = $kelas1->walas;
         $gurubk1 = $kelas1->guru;
 
-        $siswa = siswa::all();
+        foreach ($kelas as $k ) {
+            # code...
+        }
+        
+        $siswa = siswa::where('kelas_id', $k->id)->get();
         $walas = walas::all();
         $gurubk = guru::all();
         $jeniskonseling = jeniskonseling::whereIn('id', [2])->get();

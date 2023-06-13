@@ -57,6 +57,7 @@
             </div>
             
             <div class="card-body">
+                <a href="/siswa/export" class="btn btn-rounded btn-outline-success">export excel</a>
                 <a href="/dbadmin-form-siswa" class="btn btn-rounded btn-outline-primary">+ Add</a>
                 <div class="table-responsive">
                     <br><table id="example3" class="display" style="min-width: 845px">

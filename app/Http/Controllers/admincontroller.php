@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\SiswaExport;
 use Hash;
 use Session;
 use App\Models\User;
@@ -557,5 +559,10 @@ class admincontroller extends Controller
         Schema::enableForeignKeyConstraints();
         return redirect('/dbadmin-jeniskonseling')
         ->with('success','data User berhasil dihapus');
+    }
+
+    public function exportSiswa()
+    {
+        return Excel::download(new SiswaExport, 'siswa.xlsx');
     }
 }
