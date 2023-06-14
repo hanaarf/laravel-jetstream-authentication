@@ -58,10 +58,10 @@
             <div class="card-body">
                 <div class="table-responsive">
                     <table id="example4" class="display" style="min-width: 845px">
-                        <a href="/dbsiswa-form-konselingpribadi">
+                        {{-- <a href="/dbsiswa-form-konselingpribadi">
                             <button type="button" class="btn btn-rounded btn-primary"><span
                                     class="btn-icon-left text-info"><i class="fa fa-plus color-info"></i>
-                                </span>Add</button></a><br>
+                                </span>Add</button></a><br> --}}
                         <br>
                         <thead>
                             <tr>
