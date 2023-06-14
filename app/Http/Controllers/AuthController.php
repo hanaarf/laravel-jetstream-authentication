@@ -28,8 +28,10 @@ class AuthController extends Controller
         }
 
     function Login(Request $R) {
+    //ngambil email
     $user = User::where('email', $R->email)->first();
 
+    //ngecek pw
     if($user!='[]' && Hash::check($R->password,$user->password)){
     $u = User::with('siswa','guru', 'wali_kelas')->where('email', $R->email)->first();
     $token = $user->createToken('Personal Access Token')->plainTextToken;
@@ -46,6 +48,7 @@ class AuthController extends Controller
 {
 
 
+    //ngambal data jadwal konseling pribadi
     $jadwals = konselingpribadi::with('siswaid', 'gurubkid', 'jenisKonseling7', 'walasid')->where('siswa_id',$request->id)->get();
 
     if ($jadwals) {
