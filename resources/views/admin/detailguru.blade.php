@@ -62,7 +62,7 @@
                         <div class="profile-details">
                             <div class="profile-name px-3 pt-2">
                                 <h4 class="text-primary mb-0">{{ $guru->name }}</h4>
-                                <p>student</p>
+                                <p>guru</p>
                             </div>
                             <div class="profile-email px-2 pt-2">
                                 <h4 class="text-muted mb-0"><a href="/cdn-cgi/l/email-protection"
