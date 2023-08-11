@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\konselingpribadi;
 use App\Models\siswa;
+use App\Models\kelas;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Exception;
@@ -44,10 +45,7 @@ class AuthController extends Controller
     }
     }
 
-    public function jadwal(Request $request)
-{
-
-
+    public function jadwal(Request $request){
     //ngambal data jadwal konseling pribadi
     $jadwals = konselingpribadi::with('siswaid', 'gurubkid', 'jenisKonseling7', 'walasid')->where('siswa_id',$request->id)->get();
 
@@ -56,11 +54,49 @@ class AuthController extends Controller
     } else {
     return response()->json([ 'message' => 'gagal']);
     }
-}
+    }
 
     public function index(){
-   return response()->json(konselingpribadi::orderBy('id', 'ASC')->get());
+    return response()->json(konselingpribadi::orderBy('id', 'ASC')->get());
     }
+
+
+    // public function store (Request $request){
+    //     $user = Auth::user();
+    //     $siswa = $user->siswa;
+
+    //     $data = $request->validate([
+    //         'deskripsi' => 'required',
+    //         'tanggal' => 'required|date',
+    //         'tempat' => 'required',
+    //         'jam' => 'required',
+    //         'jeniskonseling_id' => 'required|exists:jeniskonseling,id',
+    //     ]);
+
+    //     $data['siswa_id'] = $siswa->id;
+    //     $data['walas_id'] = $siswa->kelas->walas->id;
+    //     $data['gurubk_id'] = $siswa->kelas->guru1->id;
+    //     $data['status'] = 'waiting';
+
+    //     konselingpribadi::create($data);
+
+    //     return response()->json(['message' => 'Konseling berhasil dibuat'], 201);
+    // }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     // public function loginApi(Request $request) 
     // {
@@ -79,4 +115,40 @@ class AuthController extends Controller
     //         return response()->json(['message'=> 'invalid credentials'], 401);
     //     }
     // }
+
+    public function store(Request $request){
+        // $product = konselingpribadi::create($request->all());
+        // return response()->json(['message' => 'Success','data' => $product]);
+
+
+        $validatedData = $request->validate([
+            'deskripsi' => 'required',
+            'jeniskonseling_id' => 'required',
+            'siswa_id' => 'required',
+            'walas_id' => 'required',
+            'gurubk_id' => 'required',
+            'tanggal' => 'required',
+            'jam' => 'required',
+            'tempat' => 'required',
+        ]);
+
+        // Buat record konseling
+        $konseling = konselingpribadi::create([
+            'deskripsi' => $validatedData['deskripsi'],
+            'jeniskonseling_id' => $validatedData['jeniskonseling_id'],
+            'siswa_id' => $validatedData['siswa_id'],
+            'walas_id' => $validatedData['walas_id'],
+            'gurubk_id' => $validatedData['gurubk_id'],
+            'tanggal' => $validatedData['tanggal'],
+            'jam' => $validatedData['jam'],
+            'tempat' => $validatedData['tempat'],
+            'status' => 'waiting',
+        ]);
+
+        return response()->json(['message' => 'Konseling berhasil dibuat'], 201);
+    }
+    
+
+   
+
 }

@@ -23,3 +23,5 @@ Route::post('/auth/register', [AuthController::class, 'Register']);
 Route::post('/auth/login', [AuthController::class, 'Login']);
 
 Route::get('/auth/siswa', [AuthController::class, 'jadwal']);
+
+Route::post('/auth/store', [AuthController::class, 'store']);

@@ -40,9 +40,11 @@ class siswa extends Model
         return $this->belongsTo(kelas::class);
     }
 
+    public function user() {
+        return $this->belongsTo(User::class);
+    }
 
-
-
+   
      // walaspk
     public function kelas2()
     {
