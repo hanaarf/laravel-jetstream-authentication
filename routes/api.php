@@ -25,3 +25,5 @@ Route::post('/auth/login', [AuthController::class, 'Login']);
 Route::get('/auth/siswa', [AuthController::class, 'jadwal']);
 
 Route::post('/auth/store', [AuthController::class, 'store']);
+Route::put('/auth/jadwal/{id}', [AuthController::class, 'update']);
+Route::delete('/auth/jadwal/{id}', [AuthController::class, 'destroy']);

@@ -61,42 +61,7 @@ class AuthController extends Controller
     }
 
 
-    // public function store (Request $request){
-    //     $user = Auth::user();
-    //     $siswa = $user->siswa;
-
-    //     $data = $request->validate([
-    //         'deskripsi' => 'required',
-    //         'tanggal' => 'required|date',
-    //         'tempat' => 'required',
-    //         'jam' => 'required',
-    //         'jeniskonseling_id' => 'required|exists:jeniskonseling,id',
-    //     ]);
-
-    //     $data['siswa_id'] = $siswa->id;
-    //     $data['walas_id'] = $siswa->kelas->walas->id;
-    //     $data['gurubk_id'] = $siswa->kelas->guru1->id;
-    //     $data['status'] = 'waiting';
-
-    //     konselingpribadi::create($data);
-
-    //     return response()->json(['message' => 'Konseling berhasil dibuat'], 201);
-    // }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+   
 
     // public function loginApi(Request $request) 
     // {
@@ -120,25 +85,30 @@ class AuthController extends Controller
         // $product = konselingpribadi::create($request->all());
         // return response()->json(['message' => 'Success','data' => $product]);
 
+        $id_siswa = $request->id_siswa;
+        $siswa = siswa::where('id', $id_siswa)->limit(1)->get()->first();
+        $kelas = kelas::with('guru1','walas1')->where('id',$siswa->kelas_id)->get()->first();
+
 
         $validatedData = $request->validate([
             'deskripsi' => 'required',
             'jeniskonseling_id' => 'required',
-            'siswa_id' => 'required',
-            'walas_id' => 'required',
-            'gurubk_id' => 'required',
+            // 'siswa_id' => 'required',
+            // 'walas_id' => 'required',
+            // 'gurubk_id' => 'required',
             'tanggal' => 'required',
             'jam' => 'required',
             'tempat' => 'required',
         ]);
 
-        // Buat record konseling
+        $id_siswa = $request->id_siswa;
+
         $konseling = konselingpribadi::create([
             'deskripsi' => $validatedData['deskripsi'],
             'jeniskonseling_id' => $validatedData['jeniskonseling_id'],
-            'siswa_id' => $validatedData['siswa_id'],
-            'walas_id' => $validatedData['walas_id'],
-            'gurubk_id' => $validatedData['gurubk_id'],
+            'siswa_id' => $id_siswa,
+            'walas_id' => $kelas->walas_id,
+            'gurubk_id' => $kelas->gurubk_id,
             'tanggal' => $validatedData['tanggal'],
             'jam' => $validatedData['jam'],
             'tempat' => $validatedData['tempat'],
@@ -146,6 +116,19 @@ class AuthController extends Controller
         ]);
 
         return response()->json(['message' => 'Konseling berhasil dibuat'], 201);
+    }
+
+
+    public function update(Request $request,$id){
+        $product = konselingpribadi::find($id);
+        $product->update($request->all());
+        return response()->json(['message' => 'Konseling berhasil diubah'], 201);
+    }
+
+    public function destroy($id){
+        $product = konselingpribadi::find($id);
+        $product->delete();
+        return response()->json(['message' => 'Konseling berhasil dihapus'], 201);
     }
     
 
