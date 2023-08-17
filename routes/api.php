@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\API\JadwalController;
 use App\Http\Controllers\AuthController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -27,3 +28,5 @@ Route::get('/auth/siswa', [AuthController::class, 'jadwal']);
 Route::post('/auth/store', [AuthController::class, 'store']);
 Route::put('/auth/jadwal/{id}', [AuthController::class, 'update']);
 Route::delete('/auth/jadwal/{id}', [AuthController::class, 'destroy']);
+
+Route::post('/jadwal/edit', [JadwalController::class, 'update']);

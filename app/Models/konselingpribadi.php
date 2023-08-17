@@ -17,6 +17,8 @@ class konselingpribadi extends Model
         return $this->belongsTo(jeniskonseling::class, 'jeniskonseling_id', 'id');
     }
 
+    
+
 
     //13
     public function siswa7()
